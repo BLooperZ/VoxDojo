@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://q02w3qnj3ge8"]
+
+[ext_resource type="Script" path="res://scripts/timer_gauge.gd" id="1_h2byq"]
+[ext_resource type="Texture2D" uid="uid://dpm441ii8b3sc" path="res://graphics/Frame 4 (1).png" id="2_6dn76"]
+[ext_resource type="Texture2D" uid="uid://dbkjffvcw8pai" path="res://graphics/Frame 4 (2).png" id="3_8euo4"]
+[ext_resource type="Texture2D" uid="uid://dpqsbxl4mr1gh" path="res://graphics/Frame 16.png" id="4_y6ugj"]
+[ext_resource type="Texture2D" uid="uid://ba1q6tij5sfgx" path="res://graphics/Frame 17.png" id="5_etfo8"]
+[ext_resource type="Texture2D" uid="uid://doa1ri1ls5f5o" path="res://graphics/Frame 18.png" id="6_vayv4"]
+
+[node name="TimerGauge" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("1_h2byq")
+seconds = 2.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 224.0
+offset_bottom = 220.0
+scale = Vector2(0.425, 0.425)
+pivot_offset = Vector2(150, 145)
+max_value = 20000.0
+fill_mode = 5
+texture_under = ExtResource("2_6dn76")
+texture_progress = ExtResource("3_8euo4")
+tint_progress = Color(0.00392157, 0.635294, 0, 1)
+
+[node name="Frame16" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(74, 68)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_y6ugj")
+offset = Vector2(0, 103.334)
+
+[node name="Frame17" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(76, 81)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_etfo8")
+offset = Vector2(0, 103.334)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(141, 70)
+scale = Vector2(1, 0.8)
+texture = ExtResource("6_vayv4")

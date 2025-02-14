@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7woqkw5s8aou"]
+
+[ext_resource type="Texture2D" uid="uid://drphq1pofg32g" path="res://graphics/Frame 6.png" id="1_gvgi5"]
+[ext_resource type="Script" path="res://scripts/sensei.gd" id="1_sok5t"]
+[ext_resource type="Texture2D" uid="uid://iwbgw00kbxjs" path="res://graphics/Frame 7 (1).png" id="2_qk3de"]
+[ext_resource type="Texture2D" uid="uid://ckmc4plqfpukw" path="res://graphics/Frame 11.png" id="4_y5tjs"]
+[ext_resource type="Texture2D" uid="uid://dnjxpyfk8l3tc" path="res://graphics/Frame 13.png" id="5_adq2t"]
+
+[sub_resource type="Animation" id="Animation_4i182"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_gvgi5")]
+}
+
+[sub_resource type="Animation" id="Animation_j8c4i"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_y5tjs")]
+}
+
+[sub_resource type="Animation" id="Animation_4niom"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_gvgi5")]
+}
+
+[sub_resource type="Animation" id="Animation_cmh6w"]
+resource_name = "listen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_adq2t")]
+}
+
+[sub_resource type="Animation" id="Animation_sfa8y"]
+resource_name = "overhead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qk3de")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_utqhu"]
+_data = {
+"RESET": SubResource("Animation_4i182"),
+"hit": SubResource("Animation_j8c4i"),
+"idle": SubResource("Animation_4niom"),
+"listen": SubResource("Animation_cmh6w"),
+"overhead": SubResource("Animation_sfa8y")
+}
+
+[node name="Sensei" type="Node2D"]
+script = ExtResource("1_sok5t")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gvgi5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_utqhu")
+}

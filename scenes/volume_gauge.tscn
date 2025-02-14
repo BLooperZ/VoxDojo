@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://urhb5sm3ikb5"]
+
+[ext_resource type="Texture2D" uid="uid://d24fh81emyj0k" path="res://icon.svg" id="1_2jmbv"]
+[ext_resource type="Script" path="res://scenes/volume_gauge.gd" id="1_538i3"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2fd3n"]
+
+[node name="VolumeGauge" type="Node2D"]
+script = ExtResource("1_538i3")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 317.0
+offset_top = 118.0
+offset_right = 445.0
+offset_bottom = 246.0
+min_value = -500.0
+max_value = 8000.0
+fill_mode = 3
+texture_under = ExtResource("1_2jmbv")
+texture_progress = ExtResource("1_2jmbv")
+tint_progress = Color(0.129926, 0.572241, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_2fd3n")
+autoplay = true
+bus = &"Record"

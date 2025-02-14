@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://dke65yl2lgcyh"]
+
+[ext_resource type="Texture2D" uid="uid://bkohrp217ju4q" path="res://graphics/Frame 3.png" id="1_41ry2"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_x1tv3"]
+[ext_resource type="Texture2D" uid="uid://bmr35w0bohbhr" path="res://graphics/Frame 2.png" id="2_rex4x"]
+[ext_resource type="Texture2D" uid="uid://dv8d1i22xu63a" path="res://graphics/Frame 12.png" id="4_xicw1"]
+
+[sub_resource type="Animation" id="Animation_4i182"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_rex4x")]
+}
+
+[sub_resource type="Animation" id="Animation_q8xax"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_xicw1")]
+}
+
+[sub_resource type="Animation" id="Animation_4niom"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_rex4x")]
+}
+
+[sub_resource type="Animation" id="Animation_sfa8y"]
+resource_name = "overhead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_41ry2")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_utqhu"]
+_data = {
+"RESET": SubResource("Animation_4i182"),
+"hit": SubResource("Animation_q8xax"),
+"idle": SubResource("Animation_4niom"),
+"overhead": SubResource("Animation_sfa8y")
+}
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_x1tv3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_rex4x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_utqhu")
+}

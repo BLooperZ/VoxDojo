@@ -1,0 +1,35 @@
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://eca5mpunsok7"]
+
+[sub_resource type="AudioEffectRecord" id="AudioEffectRecord_5d2xg"]
+resource_name = "Record"
+
+[sub_resource type="AudioEffectCapture" id="AudioEffectCapture_31kew"]
+resource_name = "Capture"
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_bw4bo"]
+resource_name = "SpectrumAnalyzer"
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_s26i6"]
+resource_name = "SpectrumAnalyzer"
+
+[resource]
+bus/1/name = &"Record"
+bus/1/solo = false
+bus/1/mute = true
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectRecord_5d2xg")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectCapture_31kew")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectSpectrumAnalyzer_bw4bo")
+bus/1/effect/2/enabled = true
+bus/2/name = &"Sensei"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_s26i6")
+bus/2/effect/0/enabled = true
