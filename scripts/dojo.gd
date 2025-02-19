@@ -13,7 +13,7 @@ var format := 1  # This equals to the default format: 16 bits
 @onready var player = $AudioStreamPlayer
 @onready var sensei: Node2D = $Sensei
 @onready var recorder: AudioStreamPlayer = $AudioStreamRecord
-@onready var sensei_player: AudioStreamPlayer = $Sensei/AudioStreamPlayer2
+@onready var sensei_player: AudioStreamPlayer = $Sensei/AudioStreamPlayer3
 @onready var player2: AudioStreamPlayer = $AudioStreamPlayer2
 
 @onready var spectrum_player: Node2D = $Student/Spectrum

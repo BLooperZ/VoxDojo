@@ -21,7 +21,7 @@ var max_values = []
 @export var record_idx: int = -1
 
 func _draw():
-	var w = WIDTH / VU_COUNT
+	#var w = WIDTH / VU_COUNT
 	for i in range(VU_COUNT):
 		var min_height = min_values[i]
 		var max_height = max_values[i]
