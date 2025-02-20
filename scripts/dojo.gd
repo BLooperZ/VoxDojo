@@ -43,6 +43,8 @@ var recs: Array = []
 @export var intro: AudioStream
 @export var cue: AudioStream
 
+const SENSEI_VOLUME_SCALE = 8
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -94,17 +96,17 @@ func feedback_snarky(success):
 	if success:
 		if randf() < 0.2:
 			sensei_player.stream = load("res://sounds/goodagain2.ogg")
-			sensei_player.volume_db = 8
+			sensei_player.volume_db = 8 + SENSEI_VOLUME_SCALE
 		else:
 			sensei_player.stream = load("res://sounds/louder.ogg")
-			sensei_player.volume_db = 4
+			sensei_player.volume_db = 4 + SENSEI_VOLUME_SCALE
 	else:
 		if randf() < 0.1:
 			sensei_player.stream = load("res://sounds/louder.ogg")
-			sensei_player.volume_db = 4
+			sensei_player.volume_db = 4 + SENSEI_VOLUME_SCALE
 		else:
 			sensei_player.stream = load("res://sounds/diaphgram.ogg")
-			sensei_player.volume_db = 4
+			sensei_player.volume_db = 4 + SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	sensei_player.volume_db = 0
 	await timer(2)
@@ -139,7 +141,7 @@ func wait_for_demonstration():
 	gauges.get_child(0).start(2.1, Color.ORANGE)
 	gauges.get_child(0).started = false
 	sensei_player.stream = load("res://sounds/listen.ogg")
-	sensei_player.volume_db = 4
+	sensei_player.volume_db = 4 + SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	await timer(1.1)
 	player.volume_db = -4
@@ -150,7 +152,7 @@ func wait_for_demonstration():
 	await countdown(2, 1)
 	player.stop()
 	just_listen.hide()
-	sensei_player.volume_db = 0
+	sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 	player.volume_db = 0
 	$Dark.hide()
 	#sensei_indicator.visible = true
@@ -196,6 +198,7 @@ func play_short(clip, duration=null):
 func perform_clip(indicator, clip, duration=null):
 	print("HERE")
 	sensei_player.stream = clip
+	sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	var finish = sensei_player.finished
 	if duration != null:
@@ -215,7 +218,7 @@ func wait_for_performance():
 	create_gauges(1)
 	$Dark2.show()
 	sensei_player.stream = load("res://sounds/nowyou.ogg")
-	sensei_player.volume_db = 4
+	sensei_player.volume_db = 4 + SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	gauges.get_child(0).set_head("player")
 	gauges.get_child(0).start(2.1, Color.ORANGE)

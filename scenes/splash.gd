@@ -7,6 +7,8 @@ var stereo := true
 var mix_rate := 44100  # This is the default mix rate on recordings
 var format := 1  # This equals to the default format: 16 bits
 
+const SENSEI_VOLUME_SCALE = 10
+
 @onready var player = $AudioStreamPlayer
 @onready var sensei: Node2D = $Sensei
 @onready var recorder: AudioStreamPlayer = $AudioStreamRecord
@@ -43,23 +45,25 @@ func _ready() -> void:
 	connect("start_game", call_start_game)
 
 func _physics_process(delta: float) -> void:
-	if spectrum_player.volume.value >= 1200 and not done:
+	if spectrum_player.volume.value >= 1250 and not done:
 		done = true
 		start_game.emit()
 
 	if done:
 		return
 
-	if spectrum_player.volume.value >= 800 and last_value >= 800:
+	if spectrum_player.volume.value >= 1000 and last_value >= 1000:
 		student.play("small")
 		if detected <= 0 and not sensei_player.is_playing():
 			sensei_player.stream = lines[1]
+			sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 			sensei_player.play()
 		detected = 1.0
-	elif spectrum_player.volume.value >= 500 and last_value >= 500:
+	elif spectrum_player.volume.value >= 700 and last_value >= 700:
 		student.play("smaller")
 		if detected <= 0 and not sensei_player.is_playing():
 			sensei_player.stream = lines[1]
+			sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 			sensei_player.play()
 		detected = 1.0
 	elif detected > 0:
@@ -68,6 +72,7 @@ func _physics_process(delta: float) -> void:
 		detected = 0.0
 		if student.chore != 'idle' and not sensei_player.is_playing():
 			sensei_player.stream = lines[0]
+			sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 			sensei_player.play()
 			student.play("idle")
 	last_value = spectrum_player.volume.value
@@ -100,6 +105,7 @@ func call_start_game():
 	#play everything collapse animation + sound
 	sensei.play("walk")
 	sensei_player.stream = load("res://sounds/heardyoufirst.ogg")
+	sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	await get_tree().create_timer(5.5).timeout
 	var game_scene = preload("res://scenes/dojo.tscn")
