@@ -34,7 +34,7 @@ var active_gauge = null
 var index = 0
 
 
-const MAX_MOVES = 4
+const MAX_MOVES = 3
 const MIN_MOVES = 1
 
 var recs: Array = []
@@ -46,6 +46,8 @@ var recs: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Dark.hide()
+	$Dark2.hide()
 	spectrum_player.hide_gauge()
 	spectrum_sensei.hide_gauge()
 	player_projector.hide()
@@ -61,35 +63,40 @@ func _ready() -> void:
 
 
 func main_loop():
-	while true:
-		for num_moves in range(MIN_MOVES, MAX_MOVES + 1):
-			for i in range(2):
-				create_gauges(0)
+	for num_moves in range(MIN_MOVES, MAX_MOVES + 1):
+		for i in range(4 - num_moves):
+			create_gauges(0)
 
-				qtip_player.reset()
-				qtip_sensei.reset()
+			qtip_player.reset()
+			qtip_sensei.reset()
 
-				#await play_intro()
-				sensei_projector.show()
-				await wait_for_demonstration()
-				await play_demonstration(num_moves)
-				sensei_projector.hide()
-				#await play_intro()
-				player_projector.show()
-				await wait_for_performance()
-				await record_performance(num_moves)
-				player_projector.hide()
-				await feedback_snarky()
-				#await feedback(num_moves)
+			#await play_intro()
+			sensei_projector.show()
+			await wait_for_demonstration()
+			await play_demonstration(num_moves)
+			sensei_projector.hide()
+			#await play_intro()
+			player_projector.show()
+			await wait_for_performance()
+			var success = await record_performance(num_moves)
+			player_projector.hide()
+			await feedback_snarky(success)
+			#await feedback(num_moves)
+	var game_scene = load("res://scenes/splash.tscn")
+	get_tree().change_scene_to_packed(game_scene)
 
-func feedback_snarky():
+func feedback_snarky(success):
 	player.pitch_scale = 0.55
 	player.stream = load("res://sounds/cue5.ogg")
 	await timer(0.1)
 	player.play()
 	await timer(0.2)
-	sensei_player.stream = load("res://sounds/diaphgram.ogg")
-	sensei_player.volume_db = 4
+	if success:
+		sensei_player.stream = load("res://sounds/goodagain.ogg")
+		sensei_player.volume_db = 8
+	else:
+		sensei_player.stream = load("res://sounds/diaphgram.ogg")
+		sensei_player.volume_db = 4
 	sensei_player.play()
 	sensei_player.volume_db = 0
 	await timer(2)
@@ -116,6 +123,7 @@ func wait_for_demonstration():
 	player.play()
 	just_listen.show()
 	print('wait_for_demonstration')
+	$Dark.show()
 	#label.text = 'Get ready for demonstration'
 	#sensei_indicator.visible = false
 	create_gauges(1, Color.ORANGE)
@@ -136,6 +144,7 @@ func wait_for_demonstration():
 	just_listen.hide()
 	sensei_player.volume_db = 0
 	player.volume_db = 0
+	$Dark.hide()
 	#sensei_indicator.visible = true
 
 
@@ -196,6 +205,7 @@ func wait_for_performance():
 	#label.text = 'Get ready for performance'
 	#student_indicator.visible = false
 	create_gauges(1)
+	$Dark2.show()
 	sensei_player.stream = load("res://sounds/nowyou.ogg")
 	sensei_player.volume_db = 4
 	sensei_player.play()
@@ -212,6 +222,7 @@ func wait_for_performance():
 	now_you.hide()
 	sensei_player.volume_db = 0
 	player.volume_db = 0
+	$Dark2.hide()
 	#student_indicator.visible = true
 
 func record_performance(count):
@@ -221,7 +232,9 @@ func record_performance(count):
 	create_gauges(count, PLAYER_COLOR)
 	recorder.play()
 	spectrum_player.show_gauge()
+	var score = 0
 	for i in range(count):
+		student.shouted = false
 		print('start recording')
 		var gauge = gauges.get_child(i)
 		gauge.set_head("player")
@@ -243,14 +256,19 @@ func record_performance(count):
 		recs.append(recording)
 		print('stop recording')
 		gauge.set_head(null)
+		if student.shouted:
+			score += 1
 
 	recorder.stop()
 	spectrum_player.hide_gauge()
 	student.play("hit")
-	if true:
+	print(str(score) + ' / ' + str(count))
+	var success = score == count
+	if success:
 		qtip_player.hit()
 	await timer(0.5)
 	student.idle()
+	return success
 
 func create_gauges(num: int, color: Color = Color.GREEN) -> void:
 	for gauge in gauges.get_children():
@@ -267,12 +285,12 @@ func create_gauges(num: int, color: Color = Color.GREEN) -> void:
 		gauge.next_mark.hide()
 
 func update_indicator(indicator, sample):
-	var buffer = sample.get_data()
-	var rms = get_rms_volume(buffer)
-	# Change size based on volume
-	#indicator.scale = Vector3(rms, rms, rms) / 150
-	var pitch = get_zero_crossing_rate(buffer)
-	print('PITCH ', pitch, ', VOLUME ', rms)
+	#var buffer = sample.get_data()
+	#var rms = get_rms_volume(buffer)
+	## Change size based on volume
+	##indicator.scale = Vector3(rms, rms, rms) / 150
+	#var pitch = get_zero_crossing_rate(buffer)
+	#print('PITCH ', pitch, ', VOLUME ', rms)
 	# Change color based on pitch
 	#var color = Color(1.0, 1.0 - (pitch / 30000.0), 1.0 - (pitch / 30000.0))
 	if indicator != null:

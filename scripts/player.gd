@@ -10,6 +10,9 @@ var format := 1  # This equals to the default format: 16 bits
 var spectrum
 
 var detected = 0.0
+var chore = 'idle'
+
+var shouted = false
 
 func timer(seconds):
 	return get_tree().create_timer(seconds).timeout
@@ -74,6 +77,7 @@ func _process(delta: float) -> void:
 	if spectrum != null and spectrum.volume.visible:
 		if spectrum.volume.value > 1000:
 			animation_player.play("overhead")
+			shouted = true
 			detected = 1.5
 		elif detected > 0:
 			detected -= delta
@@ -82,7 +86,8 @@ func _process(delta: float) -> void:
 			idle()
 
 func idle():
-	animation_player.play("idle")
+	play("idle")
 
-func play(chore):
+func play(a_chore):
+	chore = a_chore
 	animation_player.play(chore)

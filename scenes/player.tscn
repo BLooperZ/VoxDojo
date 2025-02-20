@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dke65yl2lgcyh"]
+[gd_scene load_steps=14 format=3 uid="uid://dke65yl2lgcyh"]
 
 [ext_resource type="Texture2D" uid="uid://bkohrp217ju4q" path="res://graphics/Frame 3.png" id="1_41ry2"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_x1tv3"]
 [ext_resource type="Texture2D" uid="uid://bmr35w0bohbhr" path="res://graphics/Frame 2.png" id="2_rex4x"]
 [ext_resource type="Texture2D" uid="uid://dv8d1i22xu63a" path="res://graphics/Frame 12.png" id="4_xicw1"]
+[ext_resource type="Texture2D" uid="uid://sm6ruh7o0qca" path="res://graphics/Frame 27.png" id="5_dindo"]
 [ext_resource type="Texture2D" uid="uid://cyr4wliv4ep5t" path="res://graphics/Frame 26 (2).png" id="5_leqd7"]
 
 [sub_resource type="Animation" id="Animation_4i182"]
@@ -81,13 +82,29 @@ tracks/0/keys = {
 "values": [ExtResource("5_leqd7")]
 }
 
+[sub_resource type="Animation" id="Animation_5dqf8"]
+resource_name = "smaller"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_dindo")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_utqhu"]
 _data = {
 "RESET": SubResource("Animation_4i182"),
 "hit": SubResource("Animation_q8xax"),
 "idle": SubResource("Animation_4niom"),
 "overhead": SubResource("Animation_sfa8y"),
-"small": SubResource("Animation_1n2bx")
+"small": SubResource("Animation_1n2bx"),
+"smaller": SubResource("Animation_5dqf8")
 }
 
 [node name="Player" type="Node2D"]
