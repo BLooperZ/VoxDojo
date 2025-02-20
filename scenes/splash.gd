@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready var gauges := $HBoxContainer
-@export var gauge_scene: PackedScene
-
 var effect: AudioEffectRecord  # See AudioEffect in docs
 var recording: AudioStream  # See AudioStreamSample in docs
 
@@ -19,7 +16,6 @@ var format := 1  # This equals to the default format: 16 bits
 
 @onready var spectrum_player: Node2D = $Student/Spectrum
 
-var active_gauge = null
 var index = 0
 
 
@@ -91,13 +87,16 @@ func call_start_game():
 	#play sensei coming animation + sound
 	#start actual game
 	#spectrum_player.hide()
+	student.play('overhead')
 	await get_tree().create_timer(0.4).timeout
 	collapse_splash()
-	student.play('overhead')
-	await get_tree().create_timer(1).timeout
-	player.stream = load("res://sounds/Gong.ogg")
+	await get_tree().create_timer(1.2).timeout
+	player.stream = load("res://sounds/collapse.ogg")
+	player.volume_db = 6
 	player.play()
+	student.play("hit")
 	await get_tree().create_timer(0.7).timeout
+	player.volume_db = 0
 	#play everything collapse animation + sound
 	sensei.play("walk")
 	sensei_player.stream = load("res://sounds/heardyoufirst.ogg")

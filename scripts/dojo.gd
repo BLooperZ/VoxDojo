@@ -92,11 +92,19 @@ func feedback_snarky(success):
 	player.play()
 	await timer(0.2)
 	if success:
-		sensei_player.stream = load("res://sounds/goodagain.ogg")
-		sensei_player.volume_db = 8
+		if randf() < 0.2:
+			sensei_player.stream = load("res://sounds/goodagain2.ogg")
+			sensei_player.volume_db = 8
+		else:
+			sensei_player.stream = load("res://sounds/louder.ogg")
+			sensei_player.volume_db = 4
 	else:
-		sensei_player.stream = load("res://sounds/diaphgram.ogg")
-		sensei_player.volume_db = 4
+		if randf() < 0.1:
+			sensei_player.stream = load("res://sounds/louder.ogg")
+			sensei_player.volume_db = 4
+		else:
+			sensei_player.stream = load("res://sounds/diaphgram.ogg")
+			sensei_player.volume_db = 4
 	sensei_player.play()
 	sensei_player.volume_db = 0
 	await timer(2)
@@ -284,7 +292,7 @@ func create_gauges(num: int, color: Color = Color.GREEN) -> void:
 	if gauge != null:
 		gauge.next_mark.hide()
 
-func update_indicator(indicator, sample):
+func update_indicator(indicator, _sample):
 	#var buffer = sample.get_data()
 	#var rms = get_rms_volume(buffer)
 	## Change size based on volume
