@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FightMove" load_steps=3 format=3 uid="uid://b643up6hmksbw"]
+
+[ext_resource type="Script" path="res://scripts/fight_move.gd" id="1_jvtjx"]
+[ext_resource type="AudioStream" uid="uid://d1acw5aoonql6" path="res://sounds/fooya.ogg" id="2_ux1f7"]
+
+[resource]
+script = ExtResource("1_jvtjx")
+chore = "overhead"
+sound = ExtResource("2_ux1f7")

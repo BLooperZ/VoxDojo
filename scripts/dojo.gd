@@ -38,7 +38,7 @@ const MAX_MOVES = 3
 const MIN_MOVES = 1
 
 var recs: Array = []
-@export var dems: Array[AudioStream]
+@export var dems: Array[FightMove]
 @onready var student: Node2D = $Student
 @export var intro: AudioStream
 @export var cue: AudioStream
@@ -197,7 +197,7 @@ func play_short(clip, duration=null):
 
 func perform_clip(indicator, clip, duration=null):
 	print("HERE")
-	sensei_player.stream = clip
+	sensei_player.stream = clip.sound
 	sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	var finish = sensei_player.finished
@@ -263,7 +263,7 @@ func record_performance(count):
 			recording.set_mix_rate(mix_rate)
 			recording.set_format(format)
 			recording.set_stereo(stereo)
-		update_indicator(null, recording)
+		update_indicator(null, dems[i])
 		recs.append(recording)
 		print('stop recording')
 		gauge.set_head(null)
@@ -295,7 +295,7 @@ func create_gauges(num: int, color: Color = Color.GREEN) -> void:
 	if gauge != null:
 		gauge.next_mark.hide()
 
-func update_indicator(indicator, _sample):
+func update_indicator(indicator, clip):
 	#var buffer = sample.get_data()
 	#var rms = get_rms_volume(buffer)
 	## Change size based on volume
@@ -306,7 +306,7 @@ func update_indicator(indicator, _sample):
 	#var color = Color(1.0, 1.0 - (pitch / 30000.0), 1.0 - (pitch / 30000.0))
 	if indicator != null:
 		print(indicator)
-		indicator.play("overhead")
+		indicator.play(clip.chore)
 	#indicator.material_override.albedo_color = color
 
 func get_rms_volume(buffer):
