@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlb013n7mc4mq"]
+
+[ext_resource type="Script" path="res://scenes/indicators.gd" id="1_0r581"]
+
+[node name="Indicators" type="Node2D"]
+script = ExtResource("1_0r581")

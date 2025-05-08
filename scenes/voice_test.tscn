@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://yrvx7n1o6kcx"]
+
+[ext_resource type="Script" path="res://scenes/voice_test.gd" id="1_gwnyg"]
+[ext_resource type="PackedScene" uid="uid://dke65yl2lgcyh" path="res://scenes/player.tscn" id="2_cnna1"]
+[ext_resource type="PackedScene" uid="uid://dlb013n7mc4mq" path="res://scenes/voice_indicators.tscn" id="3_x088c"]
+
+[node name="VoiceTest" type="Node2D"]
+script = ExtResource("1_gwnyg")
+
+[node name="Player" parent="." instance=ExtResource("2_cnna1")]
+position = Vector2(425, 321)
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Indicators" parent="." instance=ExtResource("3_x088c")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

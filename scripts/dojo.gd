@@ -25,6 +25,8 @@ var format := 1  # This equals to the default format: 16 bits
 @onready var qtip_sensei: Sprite2D = $Qtip
 @onready var now_you: Control = $NowYou
 @onready var just_listen: Control = $JustListen
+@onready var classifications: Node2D = $Indicators
+
 
 var SENSEI_COLOR = Color.RED
 var NEUTRAL_COLOR = Color.ORANGE
@@ -62,6 +64,8 @@ func _ready() -> void:
 	var idx = AudioServer.get_bus_index("Record")
 	effect = AudioServer.get_bus_effect(idx, 0)
 	dems.append_array(dems)
+
+	VoiceClassifier.initialize()
 
 
 func main_loop():
@@ -255,6 +259,7 @@ func record_performance(count):
 		#active_gauge = gauge
 		gauge.start(2, PLAYER_COLOR)
 		#label.text = 'Recording move' + str(i)
+		VoiceClassifier.start()
 		effect.set_recording_active(true)
 		await timer(2)
 		recording = effect.get_recording()
@@ -266,6 +271,7 @@ func record_performance(count):
 		update_indicator(null, dems[i])
 		recs.append(recording)
 		print('stop recording')
+		VoiceClassifier.stop()
 		gauge.set_head(null)
 		if student.shouted:
 			score += 1
