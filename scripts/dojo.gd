@@ -25,21 +25,19 @@ var format := 1  # This equals to the default format: 16 bits
 @onready var qtip_sensei: Sprite2D = $Qtip
 @onready var now_you: Control = $NowYou
 @onready var just_listen: Control = $JustListen
-@onready var classifications: Node2D = $Indicators
+@onready var classifications := $Indicators
 
 
 var SENSEI_COLOR = Color.RED
 var NEUTRAL_COLOR = Color.ORANGE
 var PLAYER_COLOR = Color.html('#09C6FA')
 
-var active_gauge = null
 var index = 0
 
 
 const MAX_MOVES = 3
 const MIN_MOVES = 1
 
-var recs: Array = []
 @export var dems: Array[FightMove]
 @onready var student: Node2D = $Student
 @export var intro: AudioStream
@@ -47,6 +45,7 @@ var recs: Array = []
 
 const SENSEI_VOLUME_SCALE = 8
 
+signal player_made_correct_move
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,29 +66,68 @@ func _ready() -> void:
 
 	VoiceClassifier.initialize()
 
+var num_attempts = 3
+var player_did = false
+var player_active = false
+var current_label = null
 
 func main_loop():
+	await main_loop_inner()
+	var game_scene = load("res://scenes/splash.tscn")
+	get_tree().change_scene_to_packed(game_scene)
+
+func main_loop_inner():
+	var participating = false
 	for num_moves in range(MIN_MOVES, MAX_MOVES + 1):
 		for i in range(4 - num_moves):
+			participating = false
 			create_gauges(0)
 
 			qtip_player.reset()
 			qtip_sensei.reset()
+			dems.shuffle()
 
-			#await play_intro()
-			sensei_projector.show()
-			await wait_for_demonstration()
-			await play_demonstration(num_moves)
-			sensei_projector.hide()
-			#await play_intro()
-			player_projector.show()
-			await wait_for_performance()
-			var success = await record_performance(num_moves)
-			player_projector.hide()
-			await feedback_snarky(success)
-			#await feedback(num_moves)
-	var game_scene = load("res://scenes/splash.tscn")
-	get_tree().change_scene_to_packed(game_scene)
+			for j in range(num_attempts):
+				await sensei_turn(num_moves, j)
+				var success = await player_turn(num_moves)
+				await feedback_snarky(success)
+				if success:
+					participating = true
+					break
+			if not participating:
+				print("Player not participating")
+				# TODO: play sensei commenting about it
+				return
+	# TODO: celebrate success
+
+
+func sensei_turn(num_moves, attempt):
+	player_did = false
+	sensei_projector.show()
+	await wait_for_demonstration(attempt)
+	await play_demonstration(num_moves)
+	sensei_projector.hide()
+
+
+func player_turn(num_moves):
+	player_active = true
+	player_projector.show()
+	#await wait_for_performance()
+	var success = await record_performance(num_moves)
+	player_projector.hide()
+	player_active = false
+	return success
+
+
+func _process(_delta: float) -> void:
+	if not player_turn or current_label == null:
+		return
+	print(classifications.get_prob(current_label))
+	if classifications.get_prob(current_label) > 0.2 and student.shouted:
+		player_did = true
+		player_made_correct_move.emit()
+		print('COOL')
+
 
 func feedback_snarky(success):
 	player.pitch_scale = 0.55
@@ -116,13 +154,6 @@ func feedback_snarky(success):
 	await timer(2)
 	player.pitch_scale = 1
 
-func play_intro():
-	create_gauges(0)
-	#player.stream = intro
-	#player.play()
-	await get_tree().create_timer(0.75).timeout
-	#player.stop()
-
 func timer(seconds):
 	return get_tree().create_timer(seconds).timeout
 
@@ -132,10 +163,13 @@ func countdown(time, interval):
 		#label.text = 'Counting down ' + str(i)
 		await timer(interval)
 
-func wait_for_demonstration():
+func wait_for_demonstration(attempt):
 	player.stream = load("res://sounds/2gongs.ogg")
 	player.play()
-	just_listen.show()
+	if attempt == 0:
+		just_listen.show()
+	else:
+		now_you.show()
 	print('wait_for_demonstration')
 	$Dark.show()
 	#label.text = 'Get ready for demonstration'
@@ -144,7 +178,10 @@ func wait_for_demonstration():
 	gauges.get_child(0).set_head("sensei")
 	gauges.get_child(0).start(2.1, Color.ORANGE)
 	gauges.get_child(0).started = false
-	sensei_player.stream = load("res://sounds/listen.ogg")
+	if attempt == 0:
+		sensei_player.stream = load("res://sounds/listen.ogg")
+	else:
+		sensei_player.stream = load("res://sounds/nowyou.ogg")
 	sensei_player.volume_db = 4 + SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	await timer(1.1)
@@ -156,6 +193,7 @@ func wait_for_demonstration():
 	await countdown(2, 1)
 	player.stop()
 	just_listen.hide()
+	now_you.hide()
 	sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 	player.volume_db = 0
 	$Dark.hide()
@@ -166,7 +204,6 @@ func play_demonstration(count):
 	print('play_demonstration')
 	create_gauges(count, Color.RED)
 	#label.text = 'Starting demonstration'
-	dems.shuffle()
 	spectrum_sensei.show_gauge()
 	for i in range(count):
 		if i < gauges.get_child_count():
@@ -175,7 +212,6 @@ func play_demonstration(count):
 			gauge.start(2, Color.RED)
 			gauge.started = false
 			await play_short(cue, 0.55)
-			#active_gauge = gauge
 			gauge.start(2, Color.RED)
 			await perform_clip(sensei, dems[i], 2)
 			gauge.set_head(null)
@@ -243,37 +279,31 @@ func wait_for_performance():
 func record_performance(count):
 	print('record_performance')
 	#label.text = 'Starting performance'
-	recs.clear()
 	create_gauges(count, PLAYER_COLOR)
 	recorder.play()
 	spectrum_player.show_gauge()
 	var score = 0
 	for i in range(count):
+		classifications.reset()
 		student.shouted = false
+		current_label = dems[i].label
+		print("Current label: " + current_label)
 		print('start recording')
 		var gauge = gauges.get_child(i)
 		gauge.set_head("player")
-		gauge.start(2, PLAYER_COLOR)
+		gauge.start(12, PLAYER_COLOR)
 		gauge.started = false
 		await play_short(cue, 0.55)
-		#active_gauge = gauge
-		gauge.start(2, PLAYER_COLOR)
-		#label.text = 'Recording move' + str(i)
+		gauge.start(12, PLAYER_COLOR)
 		VoiceClassifier.start()
-		effect.set_recording_active(true)
-		await timer(2)
-		recording = effect.get_recording()
-		effect.set_recording_active(false)
-		if recording != null:
-			recording.set_mix_rate(mix_rate)
-			recording.set_format(format)
-			recording.set_stereo(stereo)
+		timer(12).connect(func(): player_made_correct_move.emit())
+		await player_made_correct_move
 		update_indicator(null, dems[i])
-		recs.append(recording)
 		print('stop recording')
 		VoiceClassifier.stop()
 		gauge.set_head(null)
-		if student.shouted:
+		if player_did:
+			gauge.cut()
 			score += 1
 
 	recorder.stop()
@@ -294,7 +324,6 @@ func create_gauges(num: int, color: Color = Color.GREEN) -> void:
 	index = 0
 	var gauge = null
 	for i in range(num):
-		#var gauge_scene: PackedScene = load("res://scenes/timer_gauge.tscn")
 		gauge = gauge_scene.instantiate()
 		gauges.add_child(gauge)
 		gauge.set_color(color)
@@ -302,61 +331,7 @@ func create_gauges(num: int, color: Color = Color.GREEN) -> void:
 		gauge.next_mark.hide()
 
 func update_indicator(indicator, clip):
-	#var buffer = sample.get_data()
-	#var rms = get_rms_volume(buffer)
-	## Change size based on volume
-	##indicator.scale = Vector3(rms, rms, rms) / 150
-	#var pitch = get_zero_crossing_rate(buffer)
-	#print('PITCH ', pitch, ', VOLUME ', rms)
-	# Change color based on pitch
-	#var color = Color(1.0, 1.0 - (pitch / 30000.0), 1.0 - (pitch / 30000.0))
 	if indicator != null:
 		print(indicator)
 		indicator.play(clip.chore)
 	#indicator.material_override.albedo_color = color
-
-func get_rms_volume(buffer):
-	var sum = 0.0
-	for sample in buffer:
-		sum += sample * sample
-	return sqrt(sum / buffer.size())
-
-# Function to get the zero-crossing rate of the buffer
-func get_zero_crossing_rate(buffer):
-	var zero_crossings = 0
-	for i in range(1, buffer.size()):
-		if (buffer[i - 1] < 80 and buffer[i] >= 80) or (buffer[i - 1] >= 80 and buffer[i] < 80):
-			zero_crossings += 1
-	var duration = buffer.size() / mix_rate
-	return zero_crossings / duration
-
-
-func feedback(count):
-	print('feedback')
-	#label.text = 'Feedback'
-	create_gauges(count)
-	for i in range(count):
-		var gauge = gauges.get_child(i)
-		gauge.start(2, Color.GREEN)
-		var rec = recs[i]
-		var dem = dems[i]
-		#label.text = 'Demonstration move' + str(i)
-		await perform_clip(sensei, dem, 2)
-		gauge.start(2, Color.AQUA)
-		#label.text = 'Recorded move' + str(i)
-		await perform_clip(null, rec, 2)
-	sensei.play("idle")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta: float) -> void:
-	#if active_gauge != null and active_gauge.ended:
-		#index += 1
-		#active_gauge = null
-
-#
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("ui_accept"):
-		#if index < gauges.get_child_count():
-			#var gauge = gauges.get_child(index)
-			#active_gauge = gauge
-			#gauge.start()

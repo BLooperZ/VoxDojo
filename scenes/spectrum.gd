@@ -11,7 +11,7 @@ const MIN_DB = 60
 const ANIMATION_SPEED = 0.1
 
 var spectrum: AudioEffectSpectrumAnalyzerInstance
-var effect: AudioEffectRecord = null
+#var effect: AudioEffectRecord = null
 var min_values = []
 var max_values = []
 @onready var volume: TextureProgressBar = $TextureProgressBar
@@ -19,6 +19,8 @@ var max_values = []
 @export var bus_name: String = 'Record'
 @export var spectrum_idx: int = 0
 @export var record_idx: int = -1
+
+var active: bool = true
 
 func _draw():
 	#var w = WIDTH / VU_COUNT
@@ -35,9 +37,15 @@ func hide_gauge():
 func show_gauge():
 	volume.visible = true
 
+func start():
+	active = true
+
+func stop():
+	active = false
+
 func _process(_delta):
 	
-	if effect != null and not effect.is_recording_active():
+	if not active:
 		#volume.visible = false
 		min_values.fill(0.0)
 		max_values.fill(0.0)
@@ -74,8 +82,8 @@ func _process(_delta):
 func _ready():
 	var idx = AudioServer.get_bus_index(bus_name)
 	spectrum = AudioServer.get_bus_effect_instance(idx, spectrum_idx)
-	if record_idx > 0:
-		effect = AudioServer.get_bus_effect(idx, 0)
+	#if record_idx > 0:
+		#effect = AudioServer.get_bus_effect(idx, 0)
 	#print(spectrum)
 	min_values.resize(VU_COUNT)
 	max_values.resize(VU_COUNT)

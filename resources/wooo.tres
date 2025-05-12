@@ -7,3 +7,4 @@
 script = ExtResource("1_3msqa")
 chore = "overhead"
 sound = ExtResource("2_iotsm")
+label = "wooo"

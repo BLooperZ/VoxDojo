@@ -3,10 +3,6 @@ extends Node2D
 var effect: AudioEffectRecord  # See AudioEffect in docs
 var recording: AudioStream  # See AudioStreamSample in docs
 
-var stereo := true
-var mix_rate := 44100  # This is the default mix rate on recordings
-var format := 1  # This equals to the default format: 16 bits
-
 const SENSEI_VOLUME_SCALE = 10
 
 @onready var player = $AudioStreamPlayer

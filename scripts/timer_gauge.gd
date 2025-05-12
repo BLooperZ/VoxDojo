@@ -53,3 +53,7 @@ func _process(delta: float) -> void:
 			ended = true
 			progress.scale = 0.25 * Vector2.ONE
 			next_mark.modulate = Color.html("#3B3838")
+
+func cut():
+	progress.scale = 0.25 * Vector2.ONE
+	next_mark.modulate = Color.html("#3B3838")
