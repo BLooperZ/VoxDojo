@@ -55,5 +55,8 @@ func _process(delta: float) -> void:
 			next_mark.modulate = Color.html("#3B3838")
 
 func cut():
+	ended = true
 	progress.scale = 0.25 * Vector2.ONE
 	next_mark.modulate = Color.html("#3B3838")
+	progress.set_value(0)
+	progress.tint_under = Color.LIME

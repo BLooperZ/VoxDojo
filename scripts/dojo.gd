@@ -122,11 +122,13 @@ func player_turn(num_moves):
 func _process(_delta: float) -> void:
 	if not player_turn or current_label == null:
 		return
-	print(classifications.get_prob(current_label))
-	if classifications.get_prob(current_label) > 0.2 and student.shouted:
+	if student.shouted:
+		if VoiceClassifier.recognizer != null and classifications.get_prob(current_label) < 0.2:
+			return
+		student.shouted = false
 		player_did = true
+		print('Awesome, did it')
 		player_made_correct_move.emit()
-		print('COOL')
 
 
 func feedback_snarky(success):
@@ -174,10 +176,10 @@ func wait_for_demonstration(attempt):
 	$Dark.show()
 	#label.text = 'Get ready for demonstration'
 	#sensei_indicator.visible = false
-	create_gauges(1, Color.ORANGE)
-	gauges.get_child(0).set_head("sensei")
-	gauges.get_child(0).start(2.1, Color.ORANGE)
-	gauges.get_child(0).started = false
+	create_gauges(0, Color.ORANGE)
+	#gauges.get_child(0).set_head("sensei")
+	#gauges.get_child(0).start(2.1, Color.ORANGE)
+	#gauges.get_child(0).started = false
 	if attempt == 0:
 		sensei_player.stream = load("res://sounds/listen.ogg")
 	else:
@@ -189,7 +191,7 @@ func wait_for_demonstration(attempt):
 	player.stream = intro
 	player.play()
 	sensei.play("idle")
-	gauges.get_child(0).start(2.1, Color.ORANGE)
+	#gauges.get_child(0).start(2.1, Color.ORANGE)
 	await countdown(2, 1)
 	player.stop()
 	just_listen.hide()
@@ -212,9 +214,10 @@ func play_demonstration(count):
 			gauge.start(2, Color.RED)
 			gauge.started = false
 			await play_short(cue, 0.55)
-			gauge.start(2, Color.RED)
+			#gauge.start(2, Color.RED)
 			await perform_clip(sensei, dems[i], 2)
 			gauge.set_head(null)
+			gauge.cut()
 	sensei.play("hit")
 	spectrum_sensei.hide_gauge()
 	qtip_sensei.hit()
@@ -284,6 +287,7 @@ func record_performance(count):
 	spectrum_player.show_gauge()
 	var score = 0
 	for i in range(count):
+		player_did = false
 		classifications.reset()
 		student.shouted = false
 		current_label = dems[i].label
@@ -296,8 +300,11 @@ func record_performance(count):
 		await play_short(cue, 0.55)
 		gauge.start(12, PLAYER_COLOR)
 		VoiceClassifier.start()
-		timer(12).connect(func(): player_made_correct_move.emit())
+		var timeout = timer(12)
+		timeout.connect(player_made_correct_move.emit)
+		player_did = false
 		await player_made_correct_move
+		timeout.disconnect(player_made_correct_move.emit)
 		update_indicator(null, dems[i])
 		print('stop recording')
 		VoiceClassifier.stop()
@@ -305,6 +312,8 @@ func record_performance(count):
 		if player_did:
 			gauge.cut()
 			score += 1
+		else:
+			break
 
 	recorder.stop()
 	spectrum_player.hide_gauge()
