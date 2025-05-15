@@ -20,8 +20,8 @@ func timer(seconds):
 func _process(delta: float) -> void:
 	if spectrum != null and spectrum.volume.visible:
 		if spectrum.volume.value > 1000:
-			if sprite.animation != 'overhead':
-				sprite.play("overhead")
+			#if sprite.animation != 'overhead':
+				#sprite.play("overhead")
 			shouted = true
 			detected = 1.5
 		elif detected > 0:
@@ -35,4 +35,5 @@ func idle():
 
 func play(a_chore):
 	chore = a_chore
-	sprite.play(chore)
+	if sprite.animation != a_chore:
+		sprite.play(chore)

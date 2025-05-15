@@ -104,7 +104,8 @@ func main_loop_inner():
 func sensei_turn(num_moves, attempt):
 	player_did = false
 	sensei_projector.show()
-	await wait_for_demonstration(attempt)
+	if attempt == 0:
+		await wait_for_demonstration(attempt)
 	await play_demonstration(num_moves)
 	sensei_projector.hide()
 
@@ -124,7 +125,9 @@ func _process(_delta: float) -> void:
 		return
 	if student.shouted:
 		if VoiceClassifier.recognizer != null and classifications.get_prob(current_label) < 0.2:
+			student.play("small_overhead")
 			return
+		student.play("overhead")
 		student.shouted = false
 		player_did = true
 		print('Awesome, did it')
@@ -184,7 +187,7 @@ func wait_for_demonstration(attempt):
 		sensei_player.stream = load("res://sounds/listen.ogg")
 	else:
 		sensei_player.stream = load("res://sounds/nowyou.ogg")
-	sensei_player.volume_db = 4 + SENSEI_VOLUME_SCALE
+	sensei_player.volume_db = SENSEI_VOLUME_SCALE
 	sensei_player.play()
 	await timer(1.1)
 	player.volume_db = -4

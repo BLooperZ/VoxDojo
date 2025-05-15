@@ -81,4 +81,4 @@ script = ExtResource("1_x1tv3")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_rcir4")
-animation = &"overhead"
+animation = &"smaller_overhead"
