@@ -1,37 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyppgxjbnoqrj"]
+[gd_scene load_steps=16 format=3 uid="uid://dyppgxjbnoqrj"]
 
-[ext_resource type="Material" uid="uid://ufi8n16eer5o" path="res://scenes/purple_fuzz.tres" id="1_joio4"]
+[ext_resource type="Material" uid="uid://ufi8n16eer5o" path="res://materials/purple_fuzz.tres" id="1_joio4"]
 [ext_resource type="Texture2D" uid="uid://dbkjffvcw8pai" path="res://graphics/Frame 4 (2).png" id="2_esr36"]
-[ext_resource type="Texture2D" uid="uid://cawsjls1lm5d7" path="res://scenes/Frame 36.png" id="3_13hgw"]
-[ext_resource type="Material" uid="uid://85ja6n6d4ceb" path="res://scenes/white_fuzz.tres" id="3_n11o6"]
-[ext_resource type="Material" uid="uid://cst3jjkm1w7rc" path="res://scenes/black_fuzz.tres" id="4_6b5nh"]
-[ext_resource type="Material" uid="uid://dke7x7a3n1fup" path="res://scenes/orange_fuzz.tres" id="5_qfo6e"]
-[ext_resource type="Texture2D" uid="uid://xd3hvjuy6bge" path="res://scenes/Frame 39.png" id="7_gotnk"]
-[ext_resource type="Texture2D" uid="uid://3kf53dqm6w5d" path="res://scenes/Frame 37.png" id="8_n335f"]
+[ext_resource type="Texture2D" uid="uid://cawsjls1lm5d7" path="res://graphics/parts/Frame 36.png" id="3_13hgw"]
+[ext_resource type="Material" uid="uid://85ja6n6d4ceb" path="res://materials/white_fuzz.tres" id="3_n11o6"]
+[ext_resource type="Material" uid="uid://cst3jjkm1w7rc" path="res://materials/black_fuzz.tres" id="4_6b5nh"]
+[ext_resource type="Material" uid="uid://dke7x7a3n1fup" path="res://materials/orange_fuzz.tres" id="5_qfo6e"]
+[ext_resource type="Texture2D" uid="uid://dgygsbu6wwtkc" path="res://graphics/parts/Frame 38.png" id="6_yoon1"]
+[ext_resource type="Texture2D" uid="uid://xd3hvjuy6bge" path="res://graphics/parts/Frame 39.png" id="7_gotnk"]
+[ext_resource type="Texture2D" uid="uid://3kf53dqm6w5d" path="res://graphics/parts/Frame 37.png" id="8_n335f"]
+[ext_resource type="Texture2D" uid="uid://dfti1gy7k1ytw" path="res://graphics/parts/Frame 42.png" id="10_c6prs"]
+[ext_resource type="Material" uid="uid://bat1rl1o6nr02" path="res://materials/plate_fuzz.tres" id="11_4jspl"]
+[ext_resource type="Texture2D" uid="uid://25wvivyh40qr" path="res://graphics/parts/Frame 44.png" id="12_0a32u"]
+[ext_resource type="Material" uid="uid://dj53h3y8ysbqt" path="res://materials/tongue_fuzz.tres" id="13_iqgun"]
+[ext_resource type="Texture2D" uid="uid://gwgrjtl0o6fe" path="res://graphics/parts/Frame 43.png" id="14_nalsn"]
+[ext_resource type="PackedScene" uid="uid://bhl771hrih12s" path="res://scenes/player_head.tscn" id="15_qxfm5"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Frame4(2)12" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(350.5, 318)
-scale = Vector2(0.356192, 0.0994695)
+position = Vector2(-61.8754, -172)
+scale = Vector2(0.447327, 0.0994695)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)11" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(262.216, 319)
+position = Vector2(-157, -175)
 scale = Vector2(0.40947, 0.104321)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)14" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(533, 322)
-scale = Vector2(0.470657, 0.104321)
+position = Vector2(99.1816, -168)
+scale = Vector2(0.522954, 0.104321)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)10" type="Sprite2D" parent="."]
+material = ExtResource("1_joio4")
+position = Vector2(11, -81)
+scale = Vector2(0.454849, 0.47119)
 texture = ExtResource("2_esr36")
 
 [node name="Frame37" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(365.5, 246.5)
+position = Vector2(-60.5, -243.5)
 scale = Vector2(0.75, -0.8345)
 texture = ExtResource("3_13hgw")
 region_enabled = true
@@ -39,66 +52,82 @@ region_rect = Rect2(49.5, 134.5, 40, 59)
 
 [node name="Frame4(2)13" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(615, 302)
+position = Vector2(189, -188)
 rotation = -0.42504
 scale = Vector2(0.387295, 0.0994695)
 texture = ExtResource("2_esr36")
 
-[node name="Frame4(2)10" type="Sprite2D" parent="."]
+[node name="Frame4(2)15" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(438, 394.241)
-scale = Vector2(0.598845, 0.750915)
+position = Vector2(7.75, -131.392)
+scale = Vector2(0.342809, 0.416218)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(433.875, 273.156)
+position = Vector2(7.875, -216.844)
 scale = Vector2(0.420568, 0.297245)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)2" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(427, 240.104)
+position = Vector2(1, -249.896)
 rotation = 0.198582
 scale = Vector2(0.81761, 0.853357)
 texture = ExtResource("8_n335f")
 region_enabled = true
 region_rect = Rect2(66.7949, 65.6411, 159.795, 206.564)
 
+[node name="Frame38" type="Sprite2D" parent="."]
+material = ExtResource("4_6b5nh")
+position = Vector2(21, -299)
+scale = Vector2(0.815868, 0.896373)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(85.5, 8.5, 167, 193)
+
+[node name="Frame41" type="Sprite2D" parent="."]
+material = ExtResource("4_6b5nh")
+position = Vector2(-50, -291)
+scale = Vector2(0.467105, 0.676554)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(39.5, 24.5, 76, 177)
+
 [node name="Frame4(2)5" type="Sprite2D" parent="."]
 material = ExtResource("3_n11o6")
-position = Vector2(405.5, 211.5)
-scale = Vector2(0.180628, 0.193419)
+position = Vector2(-21, -274)
+scale = Vector2(0.16222, 0.156032)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)4" type="Sprite2D" parent="."]
 material = ExtResource("3_n11o6")
-position = Vector2(452, 213)
-scale = Vector2(0.207024, 0.211501)
+position = Vector2(25, -271)
+scale = Vector2(0.163713, 0.173547)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)8" type="Sprite2D" parent="."]
 material = ExtResource("4_6b5nh")
-position = Vector2(408.5, 221.5)
+position = Vector2(-17.5, -268.5)
 scale = Vector2(0.065253, 0.074822)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)9" type="Sprite2D" parent="."]
 material = ExtResource("4_6b5nh")
-position = Vector2(443.5, 224)
+position = Vector2(17.5, -266)
 scale = Vector2(0.074789, 0.0818165)
 texture = ExtResource("2_esr36")
 
 [node name="Frame4(2)3" type="Sprite2D" parent="."]
 material = ExtResource("5_qfo6e")
-position = Vector2(421, 248.846)
+position = Vector2(-5, -241.154)
 rotation = 0.277457
 scale = Vector2(0.152226, 0.184098)
 texture = ExtResource("2_esr36")
 
 [node name="Frame36" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
-position = Vector2(494.686, 247.279)
+position = Vector2(73, -243)
 scale = Vector2(0.796605, -0.8465)
 texture = ExtResource("3_13hgw")
 region_enabled = true
@@ -106,7 +135,7 @@ region_rect = Rect2(203.5, 141.5, 51, 55)
 
 [node name="Frame39" type="Sprite2D" parent="."]
 material = ExtResource("4_6b5nh")
-position = Vector2(396.5, 188.5)
+position = Vector2(-29.5, -301.5)
 scale = Vector2(0.92857, 0.59375)
 texture = ExtResource("7_gotnk")
 region_enabled = true
@@ -114,8 +143,311 @@ region_rect = Rect2(72.5, 88.5, 70, 40)
 
 [node name="Frame40" type="Sprite2D" parent="."]
 material = ExtResource("4_6b5nh")
-position = Vector2(452.5, 192)
+position = Vector2(32, -294)
 scale = Vector2(1.2, 0.73)
 texture = ExtResource("7_gotnk")
 region_enabled = true
 region_rect = Rect2(140.5, 104.5, 60, 25)
+
+[node name="Frame45" type="Sprite2D" parent="."]
+material = ExtResource("1_joio4")
+position = Vector2(-463, -269)
+scale = Vector2(0.80811, 0.851271)
+texture = ExtResource("10_c6prs")
+
+[node name="Frame44" type="Sprite2D" parent="Frame45"]
+material = ExtResource("11_4jspl")
+position = Vector2(-3.44339, 8.78957)
+scale = Vector2(0.888676, 0.851024)
+texture = ExtResource("12_0a32u")
+
+[node name="Frame44" type="Sprite2D" parent="Frame45/Frame44"]
+material = ExtResource("13_iqgun")
+position = Vector2(-7.26501, 10.3771)
+scale = Vector2(0.330654, 0.828622)
+texture = ExtResource("12_0a32u")
+
+[node name="Frame47" type="Sprite2D" parent="."]
+material = ExtResource("1_joio4")
+position = Vector2(-468, -263.188)
+scale = Vector2(0.809364, 0.781356)
+texture = ExtResource("14_nalsn")
+
+[node name="Frame47" type="Sprite2D" parent="Frame47"]
+material = ExtResource("1_joio4")
+position = Vector2(-81.5455, 0.959869)
+scale = Vector2(0.926653, -1.06802)
+texture = ExtResource("3_13hgw")
+region_enabled = true
+region_rect = Rect2(49.5, 134.5, 40, 59)
+
+[node name="Frame48" type="Sprite2D" parent="Frame47"]
+material = ExtResource("4_6b5nh")
+position = Vector2(-68.5724, -59.8319)
+scale = Vector2(0.577126, 0.865872)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(39.5, 24.5, 76, 177)
+
+[node name="Frame4(2)6" type="Sprite2D" parent="Frame47"]
+material = ExtResource("3_n11o6")
+position = Vector2(-32.7418, -38.0749)
+scale = Vector2(0.200429, 0.199694)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)7" type="Sprite2D" parent="Frame47"]
+material = ExtResource("3_n11o6")
+position = Vector2(24.093, -34.2354)
+scale = Vector2(0.202274, 0.22211)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)16" type="Sprite2D" parent="Frame47"]
+material = ExtResource("4_6b5nh")
+position = Vector2(-28.4174, -31.0358)
+scale = Vector2(0.0806225, 0.0957592)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)17" type="Sprite2D" parent="Frame47"]
+material = ExtResource("4_6b5nh")
+position = Vector2(14.8264, -27.8362)
+scale = Vector2(0.0924046, 0.104711)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)18" type="Sprite2D" parent="Frame47"]
+material = ExtResource("5_qfo6e")
+position = Vector2(-12.9731, 3.96234)
+rotation = 0.286874
+scale = Vector2(0.188595, 0.235012)
+skew = -0.0185573
+texture = ExtResource("2_esr36")
+
+[node name="Frame49" type="Sprite2D" parent="Frame47"]
+material = ExtResource("1_joio4")
+position = Vector2(83.3987, 1.59976)
+scale = Vector2(0.984235, -1.08337)
+texture = ExtResource("3_13hgw")
+region_enabled = true
+region_rect = Rect2(203.5, 141.5, 51, 55)
+
+[node name="Frame50" type="Sprite2D" parent="Frame47"]
+material = ExtResource("4_6b5nh")
+position = Vector2(-43.2438, -73.2701)
+scale = Vector2(1.14728, 0.759897)
+texture = ExtResource("7_gotnk")
+region_enabled = true
+region_rect = Rect2(72.5, 88.5, 70, 40)
+
+[node name="Frame51" type="Sprite2D" parent="Frame47"]
+material = ExtResource("4_6b5nh")
+position = Vector2(32.7417, -63.6714)
+scale = Vector2(1.48264, 0.934273)
+texture = ExtResource("7_gotnk")
+region_enabled = true
+region_rect = Rect2(140.5, 104.5, 60, 25)
+
+[node name="Frame52" type="Sprite2D" parent="Frame47"]
+material = ExtResource("4_6b5nh")
+position = Vector2(19.1508, -70.0705)
+scale = Vector2(1.00804, 1.1472)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(85.5, 8.5, 167, 193)
+
+[node name="Frame48" type="Sprite2D" parent="."]
+material = ExtResource("1_joio4")
+position = Vector2(-636, -259)
+scale = Vector2(0.80811, 0.851271)
+texture = ExtResource("10_c6prs")
+
+[node name="Frame44" type="Sprite2D" parent="Frame48"]
+material = ExtResource("11_4jspl")
+position = Vector2(-3.44339, 8.78957)
+scale = Vector2(0.888676, 0.851024)
+texture = ExtResource("12_0a32u")
+
+[node name="Frame44" type="Sprite2D" parent="Frame48/Frame44"]
+material = ExtResource("13_iqgun")
+position = Vector2(-7.26501, 10.3771)
+scale = Vector2(0.330654, 0.828622)
+texture = ExtResource("12_0a32u")
+
+[node name="Frame49" type="Sprite2D" parent="."]
+material = ExtResource("1_joio4")
+position = Vector2(-634, -266)
+scale = Vector2(0.809364, 0.781356)
+texture = ExtResource("14_nalsn")
+
+[node name="Frame47" type="Sprite2D" parent="Frame49"]
+material = ExtResource("1_joio4")
+position = Vector2(-81.5455, 0.959869)
+scale = Vector2(0.926653, -1.06802)
+texture = ExtResource("3_13hgw")
+region_enabled = true
+region_rect = Rect2(49.5, 134.5, 40, 59)
+
+[node name="Frame48" type="Sprite2D" parent="Frame49"]
+material = ExtResource("4_6b5nh")
+position = Vector2(-68.5724, -59.8319)
+scale = Vector2(0.577126, 0.865872)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(39.5, 24.5, 76, 177)
+
+[node name="Frame4(2)6" type="Sprite2D" parent="Frame49"]
+material = ExtResource("3_n11o6")
+position = Vector2(-32.7418, -38.0749)
+scale = Vector2(0.200429, 0.199694)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)7" type="Sprite2D" parent="Frame49"]
+material = ExtResource("3_n11o6")
+position = Vector2(24.093, -34.2354)
+scale = Vector2(0.202274, 0.22211)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)16" type="Sprite2D" parent="Frame49"]
+material = ExtResource("4_6b5nh")
+position = Vector2(-28.4174, -31.0358)
+scale = Vector2(0.0806225, 0.0957592)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)17" type="Sprite2D" parent="Frame49"]
+material = ExtResource("4_6b5nh")
+position = Vector2(14.8264, -27.8362)
+scale = Vector2(0.0924046, 0.104711)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)18" type="Sprite2D" parent="Frame49"]
+material = ExtResource("5_qfo6e")
+position = Vector2(-12.9731, 3.96234)
+rotation = 0.286874
+scale = Vector2(0.188595, 0.235012)
+skew = -0.0185573
+texture = ExtResource("2_esr36")
+
+[node name="Frame49" type="Sprite2D" parent="Frame49"]
+material = ExtResource("1_joio4")
+position = Vector2(83.3987, 1.59976)
+scale = Vector2(0.984235, -1.08337)
+texture = ExtResource("3_13hgw")
+region_enabled = true
+region_rect = Rect2(203.5, 141.5, 51, 55)
+
+[node name="Frame52" type="Sprite2D" parent="Frame49"]
+material = ExtResource("4_6b5nh")
+position = Vector2(19.1508, -70.0705)
+scale = Vector2(1.00804, 1.1472)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(85.5, 8.5, 167, 193)
+
+[node name="Frame50" type="Sprite2D" parent="Frame49"]
+material = ExtResource("4_6b5nh")
+position = Vector2(-43.2438, -73.2701)
+scale = Vector2(1.14728, 0.759897)
+texture = ExtResource("7_gotnk")
+region_enabled = true
+region_rect = Rect2(72.5, 88.5, 70, 40)
+
+[node name="Frame51" type="Sprite2D" parent="Frame49"]
+material = ExtResource("4_6b5nh")
+position = Vector2(32.7418, -63.6714)
+scale = Vector2(1.48264, 0.934273)
+texture = ExtResource("7_gotnk")
+region_enabled = true
+region_rect = Rect2(140.5, 104.5, 60, 25)
+
+[node name="Frame50" type="Sprite2D" parent="."]
+position = Vector2(-803.188, -263.438)
+scale = Vector2(0.80811, 0.851271)
+texture = ExtResource("10_c6prs")
+
+[node name="Frame44" type="Sprite2D" parent="Frame50"]
+position = Vector2(-3.44339, 8.78957)
+scale = Vector2(0.888676, 0.851024)
+texture = ExtResource("12_0a32u")
+
+[node name="Frame51" type="Sprite2D" parent="."]
+position = Vector2(-801.188, -270.438)
+scale = Vector2(0.809364, 0.781356)
+texture = ExtResource("14_nalsn")
+
+[node name="Frame47" type="Sprite2D" parent="Frame51"]
+position = Vector2(-81.5455, 0.959869)
+scale = Vector2(0.926653, -1.06802)
+texture = ExtResource("3_13hgw")
+region_enabled = true
+region_rect = Rect2(49.5, 134.5, 40, 59)
+
+[node name="Frame48" type="Sprite2D" parent="Frame51"]
+position = Vector2(-68.5724, -59.8319)
+scale = Vector2(0.577126, 0.865872)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(39.5, 24.5, 76, 177)
+
+[node name="Frame4(2)6" type="Sprite2D" parent="Frame51"]
+position = Vector2(-32.7418, -38.0749)
+scale = Vector2(0.200429, 0.199694)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)7" type="Sprite2D" parent="Frame51"]
+position = Vector2(24.093, -34.2354)
+scale = Vector2(0.202274, 0.22211)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)16" type="Sprite2D" parent="Frame51"]
+position = Vector2(-28.4174, -31.0358)
+scale = Vector2(0.0806225, 0.0957592)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)17" type="Sprite2D" parent="Frame51"]
+position = Vector2(14.8264, -27.8362)
+scale = Vector2(0.0924046, 0.104711)
+texture = ExtResource("2_esr36")
+
+[node name="Frame4(2)18" type="Sprite2D" parent="Frame51"]
+position = Vector2(-12.9731, 3.96234)
+rotation = 0.286874
+scale = Vector2(0.188595, 0.235012)
+skew = -0.0185573
+texture = ExtResource("2_esr36")
+
+[node name="Frame49" type="Sprite2D" parent="Frame51"]
+position = Vector2(83.3987, 1.59976)
+scale = Vector2(0.984235, -1.08337)
+texture = ExtResource("3_13hgw")
+region_enabled = true
+region_rect = Rect2(203.5, 141.5, 51, 55)
+
+[node name="Frame52" type="Sprite2D" parent="Frame51"]
+position = Vector2(19.1508, -70.0705)
+scale = Vector2(1.00804, 1.1472)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(85.5, 8.5, 167, 193)
+
+[node name="Frame53" type="Sprite2D" parent="Frame51"]
+position = Vector2(32.7418, -63.6714)
+scale = Vector2(1.48264, 0.934273)
+texture = ExtResource("7_gotnk")
+region_enabled = true
+region_rect = Rect2(140.5, 104.5, 60, 25)
+
+[node name="Frame50" type="Sprite2D" parent="Frame51"]
+position = Vector2(-41.7765, -69.8305)
+scale = Vector2(1.14728, 0.759897)
+texture = ExtResource("7_gotnk")
+region_enabled = true
+region_rect = Rect2(72.5, 88.5, 70, 40)
+
+[node name="Frame46" type="Sprite2D" parent="."]
+material = ExtResource("4_6b5nh")
+position = Vector2(21, -299)
+scale = Vector2(0.815868, 0.896373)
+texture = ExtResource("6_yoon1")
+region_enabled = true
+region_rect = Rect2(85.5, 8.5, 167, 193)
+
+[node name="Node2D" parent="." instance=ExtResource("15_qxfm5")]
+position = Vector2(-5, -243)

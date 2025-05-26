@@ -121,8 +121,11 @@ func player_turn(num_moves):
 
 
 func _process(_delta: float) -> void:
-	if not player_turn or current_label == null:
+	$PlayerHead.volume = spectrum_player.volume.value
+	if not player_active or current_label == null:
+		$SenseiHead.volume = spectrum_sensei.volume.value
 		return
+
 	if student.shouted:
 		if VoiceClassifier.recognizer != null and classifications.get_prob(current_label) < 0.2:
 			student.play("small_overhead")

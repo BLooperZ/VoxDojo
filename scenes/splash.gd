@@ -40,6 +40,9 @@ func _ready() -> void:
 	recorder.play()
 	connect("start_game", call_start_game)
 
+func _process(delta: float) -> void:
+	$PlayerHead.volume = spectrum_player.volume.value
+
 func _physics_process(delta: float) -> void:
 	if spectrum_player.volume.value >= 1250 and not done:
 		done = true
