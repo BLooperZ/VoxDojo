@@ -1,7 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyppgxjbnoqrj"]
+[gd_scene load_steps=19 format=3 uid="uid://dyppgxjbnoqrj"]
 
 [ext_resource type="Material" uid="uid://ufi8n16eer5o" path="res://materials/purple_fuzz.tres" id="1_joio4"]
+[ext_resource type="Material" uid="uid://dv5qjv351w4la" path="res://materials/cyan_robe_fuzz.tres" id="1_krjll"]
+[ext_resource type="PackedScene" uid="uid://gq7sso6dw0b7" path="res://player_body.tscn" id="1_u41rw"]
 [ext_resource type="Texture2D" uid="uid://dbkjffvcw8pai" path="res://graphics/Frame 4 (2).png" id="2_esr36"]
+[ext_resource type="Texture2D" uid="uid://pc4hfo377keu" path="res://graphics/parts/Frame 3.png" id="2_xfpah"]
 [ext_resource type="Texture2D" uid="uid://cawsjls1lm5d7" path="res://graphics/parts/Frame 36.png" id="3_13hgw"]
 [ext_resource type="Material" uid="uid://85ja6n6d4ceb" path="res://materials/white_fuzz.tres" id="3_n11o6"]
 [ext_resource type="Material" uid="uid://cst3jjkm1w7rc" path="res://materials/black_fuzz.tres" id="4_6b5nh"]
@@ -17,6 +20,15 @@
 [ext_resource type="PackedScene" uid="uid://bhl771hrih12s" path="res://scenes/player_head.tscn" id="15_qxfm5"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Node2D2" parent="." instance=ExtResource("1_u41rw")]
+
+[node name="Frame3" type="Sprite2D" parent="."]
+visible = false
+material = ExtResource("1_krjll")
+position = Vector2(-439, -195)
+scale = Vector2(0.695584, 0.785526)
+texture = ExtResource("2_xfpah")
 
 [node name="Frame4(2)12" type="Sprite2D" parent="."]
 material = ExtResource("1_joio4")
