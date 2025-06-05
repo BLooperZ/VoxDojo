@@ -1,0 +1,206 @@
+[gd_scene load_steps=11 format=3 uid="uid://j3jdspeeo5g4"]
+
+[ext_resource type="Script" path="res://scenes/guest_back.gd" id="1_8rw5u"]
+[ext_resource type="Material" uid="uid://ykjg8nn8fess" path="res://materials/back_fuzz.tres" id="2_bcr8q"]
+[ext_resource type="Material" uid="uid://03pvo1xh1ll4" path="res://materials/back_yellow_fuzz.tres" id="6_ihto0"]
+[ext_resource type="Material" uid="uid://btr3jcdfxvc0a" path="res://materials/back_orange_fuzz.tres" id="7_k6n71"]
+[ext_resource type="Texture2D" uid="uid://gwgrjtl0o6fe" path="res://graphics/parts/Frame 43.png" id="7_pqr43"]
+[ext_resource type="Texture2D" uid="uid://cawsjls1lm5d7" path="res://graphics/parts/Frame 36.png" id="8_lw555"]
+[ext_resource type="Texture2D" uid="uid://dgygsbu6wwtkc" path="res://graphics/parts/Frame 38.png" id="10_arlb8"]
+
+[sub_resource type="Animation" id="Animation_r3r7r"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.466667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(22, 65), Vector2(27, 71), Vector2(25, 79)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Upper2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(138, 64), Vector2(143, 70), Vector2(137, 65)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Upper3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.666667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-95, 18), Vector2(-95, 9), Vector2(-93, 14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Upper4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(231, 13), Vector2(228, 6), Vector2(235, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_2x1dm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(22, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Upper2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(138, 64)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Upper3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-95, 18)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Upper4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(231, 13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7hqel"]
+_data = {
+"RESET": SubResource("Animation_2x1dm"),
+"idle": SubResource("Animation_r3r7r")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8rw5u")
+
+[node name="Upper" type="Sprite2D" parent="."]
+material = ExtResource("2_bcr8q")
+position = Vector2(22, 65)
+scale = Vector2(0.647026, 0.802816)
+texture = ExtResource("7_pqr43")
+
+[node name="Frame47" type="Sprite2D" parent="Upper"]
+use_parent_material = true
+position = Vector2(-81.5455, 0.959869)
+scale = Vector2(0.926653, -1.06802)
+texture = ExtResource("8_lw555")
+region_enabled = true
+region_rect = Rect2(49.5, 134.5, 40, 59)
+
+[node name="Frame48" type="Sprite2D" parent="Upper"]
+material = ExtResource("2_bcr8q")
+position = Vector2(-68.5724, -59.8319)
+scale = Vector2(0.577126, 0.865872)
+texture = ExtResource("10_arlb8")
+region_enabled = true
+region_rect = Rect2(39.5, 24.5, 76, 177)
+
+[node name="Frame49" type="Sprite2D" parent="Upper"]
+use_parent_material = true
+position = Vector2(83.3987, 1.59976)
+scale = Vector2(0.984235, -1.08337)
+texture = ExtResource("8_lw555")
+region_enabled = true
+region_rect = Rect2(203.5, 141.5, 51, 55)
+
+[node name="Frame52" type="Sprite2D" parent="Upper"]
+material = ExtResource("2_bcr8q")
+position = Vector2(19.1508, -70.0705)
+scale = Vector2(1.00804, 1.1472)
+texture = ExtResource("10_arlb8")
+region_enabled = true
+region_rect = Rect2(85.5, 8.5, 167, 193)
+
+[node name="Upper2" type="Sprite2D" parent="."]
+material = ExtResource("6_ihto0")
+position = Vector2(138, 64)
+scale = Vector2(0.73913, 0.716102)
+texture = ExtResource("7_pqr43")
+
+[node name="Frame49" type="Sprite2D" parent="Upper2"]
+use_parent_material = true
+position = Vector2(83.3987, 1.59976)
+scale = Vector2(0.984235, -1.08337)
+texture = ExtResource("8_lw555")
+region_enabled = true
+region_rect = Rect2(203.5, 141.5, 51, 55)
+
+[node name="Upper3" type="Sprite2D" parent="."]
+material = ExtResource("7_k6n71")
+position = Vector2(-95, 18)
+scale = Vector2(-0.763313, -1.2429)
+texture = ExtResource("7_pqr43")
+
+[node name="Frame49" type="Sprite2D" parent="Upper3"]
+use_parent_material = true
+position = Vector2(83.3987, 1.59976)
+scale = Vector2(0.984235, -1.08337)
+texture = ExtResource("8_lw555")
+region_enabled = true
+region_rect = Rect2(203.5, 141.5, 51, 55)
+
+[node name="Upper4" type="Sprite2D" parent="."]
+material = ExtResource("7_k6n71")
+position = Vector2(231, 13)
+scale = Vector2(0.809364, -1.18228)
+texture = ExtResource("7_pqr43")
+
+[node name="Frame49" type="Sprite2D" parent="Upper4"]
+use_parent_material = true
+position = Vector2(83.3987, 1.59976)
+scale = Vector2(0.984235, -1.08337)
+texture = ExtResource("8_lw555")
+region_enabled = true
+region_rect = Rect2(203.5, 141.5, 51, 55)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7hqel")
+}
