@@ -334,11 +334,11 @@ func record_performance(count):
 
 	recorder.stop()
 	spectrum_player.hide_gauge()
-	await timer(1)
 	student.play("hit")
 	print(str(score) + ' / ' + str(count))
 	var success = score == count
 	if success:
+		await timer(0.2)
 		qtip_player.hit()
 	await timer(0.5)
 	student.play("idle")
