@@ -27,6 +27,8 @@ var format := 1  # This equals to the default format: 16 bits
 @onready var just_listen: Control = $JustListen
 @onready var classifications := $Indicators
 
+@onready var curtains: AnimationPlayer = $RigidBody2D/AnimationPlayer
+
 
 var SENSEI_COLOR = Color.RED
 var NEUTRAL_COLOR = Color.ORANGE
@@ -74,6 +76,8 @@ var current_chore = null
 
 func main_loop():
 	await main_loop_inner()
+	curtains.play("close")
+	await curtains.animation_finished
 	var game_scene = load("res://scenes/splash.tscn")
 	get_tree().change_scene_to_packed(game_scene)
 
