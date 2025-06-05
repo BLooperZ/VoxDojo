@@ -70,6 +70,7 @@ var num_attempts = 3
 var player_did = false
 var player_active = false
 var current_label = null
+var current_chore = null
 
 func main_loop():
 	await main_loop_inner()
@@ -121,16 +122,16 @@ func player_turn(num_moves):
 
 
 func _process(_delta: float) -> void:
-	$PlayerHead.volume = spectrum_player.volume.value
+	#$PlayerHead.volume = spectrum_player.volume.value
 	if not player_active or current_label == null:
-		$SenseiHead.volume = spectrum_sensei.volume.value
+		sensei.puppet.head.volume = spectrum_sensei.volume.value
 		return
 
 	if student.shouted:
 		if VoiceClassifier.recognizer != null and classifications.get_prob(current_label) < 0.2:
 			student.play("small_overhead")
 			return
-		student.play("overhead")
+		student.play(current_chore)
 		student.shouted = false
 		player_did = true
 		print('Awesome, did it')
@@ -252,7 +253,7 @@ func perform_clip(indicator, clip, duration=null):
 	var finish = sensei_player.finished
 	if duration != null:
 		finish = timer(duration)
-	update_indicator(indicator, clip)
+	sensei.play(clip.chore)
 	await finish
 	sensei_player.stop()
 	sensei_player.stream = null
@@ -296,7 +297,11 @@ func record_performance(count):
 		player_did = false
 		classifications.reset()
 		student.shouted = false
+		#if i > 0:
+			#await timer(1)
 		current_label = dems[i].label
+		current_chore = dems[i].chore
+		$Label.text = current_label
 		print("Current label: " + current_label)
 		print('start recording')
 		var gauge = gauges.get_child(i)
@@ -311,7 +316,9 @@ func record_performance(count):
 		player_did = false
 		await player_made_correct_move
 		timeout.disconnect(player_made_correct_move.emit)
-		update_indicator(null, dems[i])
+		if player_did:
+			student.play(current_chore)
+			await timer(1)
 		print('stop recording')
 		VoiceClassifier.stop()
 		gauge.set_head(null)
@@ -323,13 +330,14 @@ func record_performance(count):
 
 	recorder.stop()
 	spectrum_player.hide_gauge()
+	await timer(1)
 	student.play("hit")
 	print(str(score) + ' / ' + str(count))
 	var success = score == count
 	if success:
 		qtip_player.hit()
 	await timer(0.5)
-	student.idle()
+	student.play("idle")
 	return success
 
 func create_gauges(num: int, color: Color = Color.GREEN) -> void:
@@ -344,9 +352,3 @@ func create_gauges(num: int, color: Color = Color.GREEN) -> void:
 		gauge.set_color(color)
 	if gauge != null:
 		gauge.next_mark.hide()
-
-func update_indicator(indicator, clip):
-	if indicator != null:
-		print(indicator)
-		indicator.play(clip.chore)
-	#indicator.material_override.albedo_color = color

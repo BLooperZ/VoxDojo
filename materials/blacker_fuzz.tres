@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cebvya8yt11bi"]
+
+[ext_resource type="Shader" path="res://materials/fuzzy.gdshader" id="1_sh3xd"]
+[ext_resource type="Texture2D" uid="uid://dwrt4axvf33r1" path="res://graphics/fuzzy.png" id="2_autfc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mp6fm"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p4r2x"]
+noise = SubResource("FastNoiseLite_mp6fm")
+
+[resource]
+shader = ExtResource("1_sh3xd")
+shader_parameter/tint = Color(0.155437, 0.313029, 0.303514, 1)
+shader_parameter/hair_length = 0.015
+shader_parameter/fiber_stretch = 0.05
+shader_parameter/time_scale = 0.002
+shader_parameter/light_direction = Vector2(0.6, 0.4)
+shader_parameter/shadow_strength = 0.7
+shader_parameter/outline_strength = 0.3
+shader_parameter/noise1 = ExtResource("2_autfc")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_p4r2x")

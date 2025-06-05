@@ -11,7 +11,7 @@ func _ready() -> void:
 	initial_jaw = $Jaw.position
 	initial_upper = $Upper.position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if volume > 600:
 		volume *= 30
 	if volume < 300:

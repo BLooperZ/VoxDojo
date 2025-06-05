@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhl771hrih12s"]
+[gd_scene load_steps=17 format=3 uid="uid://bhl771hrih12s"]
 
 [ext_resource type="Script" path="res://scenes/head_lips.gd" id="1_2x5io"]
 [ext_resource type="Material" uid="uid://ufi8n16eer5o" path="res://materials/purple_fuzz.tres" id="1_ncpje"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dbkjffvcw8pai" path="res://graphics/Frame 4 (2).png" id="11_smhpt"]
 [ext_resource type="Material" uid="uid://dke7x7a3n1fup" path="res://materials/orange_fuzz.tres" id="12_3a10b"]
 [ext_resource type="Texture2D" uid="uid://xd3hvjuy6bge" path="res://graphics/parts/Frame 39.png" id="13_n7y22"]
+[ext_resource type="Material" uid="uid://cbftxtw70h20f" path="res://materials/blackerer_fuzz.tres" id="13_qhi1q"]
+[ext_resource type="Material" uid="uid://cebvya8yt11bi" path="res://materials/blacker_fuzz.tres" id="15_0guym"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_2x5io")
@@ -43,7 +45,7 @@ scale = Vector2(0.809364, 0.781356)
 texture = ExtResource("6_0qi2l")
 
 [node name="Frame47" type="Sprite2D" parent="Upper"]
-material = ExtResource("1_ncpje")
+use_parent_material = true
 position = Vector2(-81.5455, 0.959869)
 scale = Vector2(0.926653, -1.06802)
 texture = ExtResource("7_wgmby")
@@ -64,22 +66,18 @@ position = Vector2(-32.7418, -38.0749)
 scale = Vector2(0.200429, 0.199694)
 texture = ExtResource("11_smhpt")
 
-[node name="Frame4(2)7" type="Sprite2D" parent="Upper"]
+[node name="Frame4(2)16" type="Sprite2D" parent="Upper/Frame4(2)6"]
+material = ExtResource("13_qhi1q")
+position = Vector2(21.5757, 35.2494)
+scale = Vector2(0.40225, 0.47953)
+texture = ExtResource("11_smhpt")
+
+[node name="Frame4(2)8" type="Sprite2D" parent="Upper/Frame4(2)6/Frame4(2)16"]
 material = ExtResource("10_kw45a")
-position = Vector2(24.093, -34.2354)
-scale = Vector2(0.202274, 0.22211)
-texture = ExtResource("11_smhpt")
-
-[node name="Frame4(2)16" type="Sprite2D" parent="Upper"]
-material = ExtResource("8_s7wcs")
-position = Vector2(-28.4174, -31.0358)
-scale = Vector2(0.0806225, 0.0957592)
-texture = ExtResource("11_smhpt")
-
-[node name="Frame4(2)17" type="Sprite2D" parent="Upper"]
-material = ExtResource("8_s7wcs")
-position = Vector2(14.8264, -27.8362)
-scale = Vector2(0.0924046, 0.104711)
+position = Vector2(-60.9942, -29.6942)
+rotation = 0.306073
+scale = Vector2(0.271201, 0.39639)
+skew = 0.113282
 texture = ExtResource("11_smhpt")
 
 [node name="Frame4(2)18" type="Sprite2D" parent="Upper"]
@@ -91,28 +89,12 @@ skew = -0.0185573
 texture = ExtResource("11_smhpt")
 
 [node name="Frame49" type="Sprite2D" parent="Upper"]
-material = ExtResource("1_ncpje")
+use_parent_material = true
 position = Vector2(83.3987, 1.59976)
 scale = Vector2(0.984235, -1.08337)
 texture = ExtResource("7_wgmby")
 region_enabled = true
 region_rect = Rect2(203.5, 141.5, 51, 55)
-
-[node name="Frame50" type="Sprite2D" parent="Upper"]
-material = ExtResource("8_s7wcs")
-position = Vector2(-43.2438, -73.2701)
-scale = Vector2(1.14728, 0.759897)
-texture = ExtResource("13_n7y22")
-region_enabled = true
-region_rect = Rect2(72.5, 88.5, 70, 40)
-
-[node name="Frame51" type="Sprite2D" parent="Upper"]
-material = ExtResource("8_s7wcs")
-position = Vector2(32.7417, -63.6714)
-scale = Vector2(1.48264, 0.934273)
-texture = ExtResource("13_n7y22")
-region_enabled = true
-region_rect = Rect2(140.5, 104.5, 60, 25)
 
 [node name="Frame52" type="Sprite2D" parent="Upper"]
 material = ExtResource("8_s7wcs")
@@ -121,3 +103,39 @@ scale = Vector2(1.00804, 1.1472)
 texture = ExtResource("9_rtvti")
 region_enabled = true
 region_rect = Rect2(85.5, 8.5, 167, 193)
+
+[node name="Frame4(2)7" type="Sprite2D" parent="Upper"]
+material = ExtResource("10_kw45a")
+position = Vector2(24.093, -34.2354)
+scale = Vector2(0.202274, 0.22211)
+texture = ExtResource("11_smhpt")
+
+[node name="Frame4(2)17" type="Sprite2D" parent="Upper/Frame4(2)7"]
+material = ExtResource("13_qhi1q")
+position = Vector2(-45.8121, 28.8109)
+scale = Vector2(0.456829, 0.471438)
+texture = ExtResource("11_smhpt")
+
+[node name="Frame4(2)9" type="Sprite2D" parent="Upper/Frame4(2)7/Frame4(2)17"]
+material = ExtResource("10_kw45a")
+position = Vector2(-52.3006, -31.288)
+rotation = 0.319848
+scale = Vector2(0.248538, 0.370612)
+skew = 0.0822929
+texture = ExtResource("11_smhpt")
+
+[node name="Frame51" type="Sprite2D" parent="Upper"]
+material = ExtResource("15_0guym")
+position = Vector2(32.7417, -63.6714)
+scale = Vector2(1.48264, 0.934273)
+texture = ExtResource("13_n7y22")
+region_enabled = true
+region_rect = Rect2(140.5, 104.5, 60, 25)
+
+[node name="Frame50" type="Sprite2D" parent="Upper"]
+material = ExtResource("15_0guym")
+position = Vector2(-43.2438, -73.2701)
+scale = Vector2(1.14728, 0.759897)
+texture = ExtResource("13_n7y22")
+region_enabled = true
+region_rect = Rect2(72.5, 88.5, 70, 40)

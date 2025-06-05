@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_3msqa")
-chore = "overhead"
+chore = "wooo"
 sound = ExtResource("2_iotsm")
 label = "wooo"

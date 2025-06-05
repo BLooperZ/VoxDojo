@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dke65yl2lgcyh"]
+[gd_scene load_steps=10 format=3 uid="uid://dke65yl2lgcyh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_x1tv3"]
 [ext_resource type="Texture2D" uid="uid://cfux8ykm4er12" path="res://graphics/Player.png" id="3_e8lvh"]
+[ext_resource type="PackedScene" uid="uid://gq7sso6dw0b7" path="res://player_body.tscn" id="3_g07pf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnyrh"]
 atlas = ExtResource("3_e8lvh")
@@ -79,6 +80,11 @@ animations = [{
 script = ExtResource("1_x1tv3")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_rcir4")
-animation = &"smaller_overhead"
+animation = &"overhead"
+
+[node name="Node2D2" parent="." instance=ExtResource("3_g07pf")]
+position = Vector2(-2, 42)
+scale = Vector2(0.5, 0.5)
