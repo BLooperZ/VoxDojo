@@ -441,6 +441,7 @@ broken = Array[Texture2D]([ExtResource("18_8ts8w"), ExtResource("19_eafqq"), Ext
 z_index = 1
 position = Vector2(800, 547)
 scale = Vector2(0.8, 0.8)
+texture = ExtResource("17_ny4wr")
 intacts = Array[Texture2D]([ExtResource("20_1ea2f"), ExtResource("21_du3qq"), ExtResource("17_ny4wr")])
 broken = Array[Texture2D]([ExtResource("18_8ts8w"), ExtResource("19_eafqq"), ExtResource("20_f20t8")])
 
