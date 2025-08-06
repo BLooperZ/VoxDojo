@@ -7,6 +7,7 @@
 script = ExtResource("1_jigak")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = -12.0
 offset_top = -277.0
 offset_right = 327.0

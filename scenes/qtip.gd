@@ -17,5 +17,6 @@ func hit():
 
 func reset():
 	idx = randi_range(1, len(intacts)) - 1
+	idx = 2
 	texture = intacts[idx]
 	#animation_player.play("default")

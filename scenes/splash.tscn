@@ -1,9 +1,10 @@
-[gd_scene load_steps=47 format=4 uid="uid://mphxai7btx0u"]
+[gd_scene load_steps=52 format=4 uid="uid://mphxai7btx0u"]
 
 [ext_resource type="Script" path="res://scenes/splash.gd" id="1_ddawm"]
 [ext_resource type="AudioStream" uid="uid://dmqu5su6fmodw" path="res://sounds/musthavebeenwind.ogg" id="2_2dcoe"]
 [ext_resource type="AudioStream" uid="uid://b2sxn65yjlo4n" path="res://sounds/someonethere.ogg" id="3_dqhys"]
 [ext_resource type="Texture2D" uid="uid://dwhlotx3rnjke" path="res://graphics/Frame 19.png" id="5_323gn"]
+[ext_resource type="Texture2D" uid="uid://c2gn6jylrgye8" path="res://graphics/BG.png" id="5_srhn3"]
 [ext_resource type="Texture2D" uid="uid://e4l7t5hvdi5a" path="res://graphics/background4.png" id="5_w8jqf"]
 [ext_resource type="Texture2D" uid="uid://mflaypl3cyy3" path="res://graphics/Frame 24.png" id="6_6blg8"]
 [ext_resource type="Texture2D" uid="uid://c5p81b2khigu5" path="res://graphics/Frame 25.png" id="7_3hv4t"]
@@ -15,11 +16,15 @@
 [ext_resource type="PackedScene" uid="uid://8u78tl7gqnnm" path="res://scenes/spectrum.tscn" id="12_iiiqx"]
 [ext_resource type="PackedScene" uid="uid://yprnacw4w1t5" path="res://scenes/qtip.tscn" id="14_1lo2c"]
 [ext_resource type="FontFile" uid="uid://ddvasfm15et3o" path="res://fonts/MakabiYG/MakabiYG.ttf" id="15_drxb1"]
+[ext_resource type="Texture2D" uid="uid://rfsguuc7hn7l" path="res://graphics/19.png" id="17_ny4wr"]
 [ext_resource type="Texture2D" uid="uid://8nhmy68ougbl" path="res://graphics/brick-broken.png" id="18_8ts8w"]
 [ext_resource type="Texture2D" uid="uid://bxpegipbce1ek" path="res://graphics/Frame 10.png" id="19_eafqq"]
 [ext_resource type="Texture2D" uid="uid://n5x25skwroq0" path="res://graphics/brick-intact.png" id="20_1ea2f"]
+[ext_resource type="Texture2D" uid="uid://cctk110cv6jy8" path="res://graphics/12.png" id="20_2vijt"]
+[ext_resource type="Texture2D" uid="uid://d22cql4ab6n5y" path="res://graphics/20.png" id="20_f20t8"]
 [ext_resource type="Texture2D" uid="uid://c4ir3wd6p0ex0" path="res://Title.png" id="20_ncp11"]
 [ext_resource type="PackedScene" uid="uid://bhl771hrih12s" path="res://scenes/player_head.tscn" id="20_y6wly"]
+[ext_resource type="Texture2D" uid="uid://cc73nrrkopwaj" path="res://graphics/13.png" id="21_8h21j"]
 [ext_resource type="Texture2D" uid="uid://b4pn136oh8tuj" path="res://graphics/Frame 8.png" id="21_du3qq"]
 [ext_resource type="Texture2D" uid="uid://dr2pwopwon1w0" path="res://materials/Frame 57.png" id="21_vtmyk"]
 [ext_resource type="PackedScene" uid="uid://j3jdspeeo5g4" path="res://scenes/guest_back.tscn" id="22_ufda1"]
@@ -340,6 +345,13 @@ position = Vector2(581, 312)
 scale = Vector2(0.863281, 0.746094)
 texture = ExtResource("5_w8jqf")
 
+[node name="Copilot20250605092744" type="Sprite2D" parent="."]
+modulate = Color(0.95, 0.5, 0.7, 1)
+z_index = -1
+position = Vector2(587, 312)
+scale = Vector2(0.745, 0.746)
+texture = ExtResource("5_srhn3")
+
 [node name="Frame19" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(558, 301)
@@ -422,14 +434,15 @@ bus = &"Sensei"
 visible = false
 z_index = 1
 position = Vector2(375, 495)
-intacts = Array[Texture2D]([ExtResource("20_1ea2f"), ExtResource("21_du3qq")])
-broken = Array[Texture2D]([ExtResource("18_8ts8w"), ExtResource("19_eafqq")])
+intacts = Array[Texture2D]([ExtResource("20_1ea2f"), ExtResource("21_du3qq"), ExtResource("17_ny4wr")])
+broken = Array[Texture2D]([ExtResource("18_8ts8w"), ExtResource("19_eafqq"), ExtResource("20_f20t8")])
 
 [node name="Qtip2" parent="." instance=ExtResource("14_1lo2c")]
 z_index = 1
-position = Vector2(821, 529.999)
-intacts = Array[Texture2D]([ExtResource("20_1ea2f"), ExtResource("21_du3qq")])
-broken = Array[Texture2D]([ExtResource("18_8ts8w"), ExtResource("19_eafqq")])
+position = Vector2(800, 547)
+scale = Vector2(0.8, 0.8)
+intacts = Array[Texture2D]([ExtResource("20_1ea2f"), ExtResource("21_du3qq"), ExtResource("17_ny4wr")])
+broken = Array[Texture2D]([ExtResource("18_8ts8w"), ExtResource("19_eafqq"), ExtResource("20_f20t8")])
 
 [node name="NowYou" type="Control" parent="."]
 visible = false
@@ -508,6 +521,7 @@ position = Vector2(564, 124)
 freeze = true
 
 [node name="Frame52" type="Sprite2D" parent="RigidBody2D"]
+visible = false
 modulate = Color(1.5, 1.5, 1.5, 1)
 z_index = -1
 position = Vector2(384, 92)
@@ -517,7 +531,22 @@ texture = ExtResource("9_ibdqv")
 region_enabled = true
 region_rect = Rect2(1216.11, 319.034, 808.716, 923.59)
 
+[node name="Frame53" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = -1
+position = Vector2(325, 160)
+scale = Vector2(0.7, 0.72)
+texture = ExtResource("20_2vijt")
+region_rect = Rect2(1216.11, 319.034, 808.716, 923.59)
+
+[node name="12" type="Sprite2D" parent="RigidBody2D"]
+visible = false
+z_index = -1
+position = Vector2(379, 67)
+texture = ExtResource("20_2vijt")
+
 [node name="Frame51" type="Sprite2D" parent="RigidBody2D"]
+visible = false
 modulate = Color(1.5, 1.5, 1.5, 1)
 z_index = 6
 position = Vector2(-408, 48)
@@ -525,6 +554,14 @@ rotation = 0.0828506
 scale = Vector2(1, 0.917252)
 texture = ExtResource("9_ibdqv")
 region_enabled = true
+region_rect = Rect2(198.84, 256.461, 1024.68, 997.11)
+
+[node name="Frame54" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = 6
+position = Vector2(-294, 172)
+scale = Vector2(0.7, 0.72)
+texture = ExtResource("21_8h21j")
 region_rect = Rect2(198.84, 256.461, 1024.68, 997.11)
 
 [node name="Frame20" type="Sprite2D" parent="RigidBody2D"]

@@ -36,6 +36,7 @@ func hide_gauge():
 
 func show_gauge():
 	volume.visible = true
+	pass
 
 func start():
 	active = true
