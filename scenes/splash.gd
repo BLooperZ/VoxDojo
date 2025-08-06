@@ -51,16 +51,16 @@ func _physics_process(delta: float) -> void:
 	if done:
 		return
 
-	if spectrum_player.volume.value >= 1000 and last_value >= 1000:
+	if spectrum_player.volume.value >= 1100 and last_value >= 1100:
 		student.play("small_overhead")
 		if detected <= 0 and not sensei_player.is_playing():
 			sensei_player.stream = lines[1]
 			sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 			sensei_player.play()
 		detected = 1.0
-	elif spectrum_player.volume.value >= 700 and last_value >= 700:
+	elif spectrum_player.volume.value >= 780 and last_value >= 780:
 		student.play("smaller_overhead")
-		if detected <= 0 and not sensei_player.is_playing():
+		if detected <= 0 and not sensei_player.is_playing() and randi() % 5 < 3:
 			sensei_player.stream = lines[1]
 			sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
 			sensei_player.play()
@@ -70,9 +70,10 @@ func _physics_process(delta: float) -> void:
 	if detected <= 0.0:
 		detected = 0.0
 		if student.chore != 'idle' and not sensei_player.is_playing():
-			sensei_player.stream = lines[0]
-			sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
-			sensei_player.play()
+			if randi() % 5 < 3:
+				sensei_player.stream = lines[0]
+				sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
+				sensei_player.play()
 			student.play("idle")
 	last_value = spectrum_player.volume.value
 
