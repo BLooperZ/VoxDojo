@@ -125,7 +125,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_ve64w"]
 resource_name = "eeeha"
-length = 0.6
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -134,7 +133,7 @@ tracks/0/path = NodePath("IKTargets/LeftHand:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.233333, 0.566667),
+"times": PackedFloat32Array(0, 0.533333, 0.933333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(35, 18), Vector2(-147, -69), Vector2(120, -275)]
@@ -146,7 +145,7 @@ tracks/1/path = NodePath("IKTargets/LeftHand:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.233333, 0.566667),
+"times": PackedFloat32Array(0, 0.5, 0.866667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0]
@@ -386,6 +385,69 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r3wxg"]
+resource_name = "listen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IKTargets/LeftHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(35, 18), Vector2(41, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IKTargets/LeftHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IKTargets/RightHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-38, 20), Vector2(110, -122)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IKTargets/RightHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BodyPuppet/Body/ArmR/ForeArmR:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_kru4r"]
@@ -647,69 +709,6 @@ tracks/3/keys = {
 "values": [0.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_r3wxg"]
-resource_name = "listen"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("IKTargets/LeftHand:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.233333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(35, 18), Vector2(41, 56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("IKTargets/LeftHand:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.233333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("IKTargets/RightHand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-38, 20), Vector2(110, -122)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("IKTargets/RightHand:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.233333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPuppet/Body/ArmR/ForeArmR:z_index")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(-0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jo4mt"]
 _data = {
 "RESET": SubResource("Animation_urfgk"),
@@ -740,28 +739,324 @@ texture = ExtResource("3_he43n")
 region_enabled = true
 region_rect = Rect2(70.722, 261.911, 244.904, 296.813)
 
+[node name="Body6" type="Sprite2D" parent="BodyPuppet/Body"]
+modulate = Color(0, 0, 0, 1)
+material = ExtResource("2_5ylvc")
+position = Vector2(2.47525, -113.777)
+scale = Vector2(1.10575, 0.68112)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Outline" type="Node2D" parent="BodyPuppet/Body"]
+
+[node name="Body2" type="Sprite2D" parent="BodyPuppet/Body/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(2.47525, 0)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 296.813)
+
+[node name="Body3" type="Sprite2D" parent="BodyPuppet/Body/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(-2.47525, 0)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 296.813)
+
+[node name="Body4" type="Sprite2D" parent="BodyPuppet/Body/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(1.19209e-06, 1.96168)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 296.813)
+
+[node name="Body5" type="Sprite2D" parent="BodyPuppet/Body/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(1.19209e-06, -1.96168)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 296.813)
+
+[node name="Node2D" type="Node2D" parent="BodyPuppet/Body/Outline"]
+position = Vector2(-1.18029e-06, -40.2144)
+scale = Vector2(1, 0.686131)
+
+[node name="Body7" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(3.71286, -108.769)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body8" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(1.23761, -108.769)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body9" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(2.47523, -108.769)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body10" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(3.71286, -107.788)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body11" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(1.23761, -107.788)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body12" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(2.47523, -107.788)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body13" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(3.71286, -109.75)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body14" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(1.23761, -109.75)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
+[node name="Body15" type="Sprite2D" parent="BodyPuppet/Body/Outline/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(2.47523, -109.75)
+scale = Vector2(1.10575, 0.916521)
+texture = ExtResource("3_he43n")
+region_enabled = true
+region_rect = Rect2(70.722, 261.911, 244.904, 73.357)
+
 [node name="ArmR" type="Sprite2D" parent="BodyPuppet/Body"]
 z_index = 1
 use_parent_material = true
-position = Vector2(-61.8812, -98.0836)
-rotation = -0.393119
-scale = Vector2(0.959223, 0.84147)
-skew = -0.190445
+position = Vector2(-55.7067, -102.007)
+rotation = -0.231079
+scale = Vector2(0.984965, 0.811419)
+skew = -0.127342
 texture = ExtResource("3_he43n")
 offset = Vector2(-66, 10)
 region_enabled = true
 region_rect = Rect2(288.922, 22.483, 230.263, 129.107)
 
+[node name="Outline" type="Node2D" parent="BodyPuppet/Body/ArmR"]
+
+[node name="ArmR2" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-23.0929, -1.04066)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR3" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-20.7406, -0.271602)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR4" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-25.4451, -1.8097)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR5" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-22.7084, -2.21677)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR6" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-20.3561, -1.44772)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR7" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-25.0606, -2.98582)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR8" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-23.4774, 0.13546)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR9" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-21.1252, 0.904518)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
+[node name="ArmR10" type="Sprite2D" parent="BodyPuppet/Body/ArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-25.8296, -0.633583)
+texture = ExtResource("3_he43n")
+offset = Vector2(-66, 10)
+region_enabled = true
+region_rect = Rect2(292.819, 22.483, 175.206, 129.107)
+
 [node name="ForeArmR" type="Sprite2D" parent="BodyPuppet/Body/ArmR"]
 z_index = 5
 use_parent_material = true
-position = Vector2(-129.949, 33.4157)
-rotation = -0.214618
-scale = Vector2(0.999996, 0.999996)
+position = Vector2(-129.948, 33.4159)
+rotation = -0.0156558
+scale = Vector2(0.999943, 0.999943)
 texture = ExtResource("3_he43n")
 offset = Vector2(37.6711, 60.2475)
 region_enabled = true
 region_rect = Rect2(89.2719, -4.13704, 189.002, 199.65)
+
+[node name="Outline" type="Node2D" parent="BodyPuppet/Body/ArmR/ForeArmR"]
+
+[node name="ForeArmR5" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(20.1574, 17.9831)
+texture = ExtResource("3_he43n")
+offset = Vector2(37.6711, 60.2475)
+region_enabled = true
+region_rect = Rect2(126.5, 29.1999, 151.774, 166.313)
+
+[node name="ForeArmR6" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(20.1574, 17.9831)
+texture = ExtResource("3_he43n")
+offset = Vector2(37.6711, 60.2475)
+region_enabled = true
+region_rect = Rect2(126.5, 29.1999, 151.774, 166.313)
+
+[node name="ForeArmR7" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(17.8483, 17.0926)
+texture = ExtResource("3_he43n")
+offset = Vector2(37.6711, 60.2475)
+region_enabled = true
+region_rect = Rect2(126.5, 29.1999, 151.774, 166.313)
+
+[node name="ForeArmR8" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(21.0479, 15.674)
+texture = ExtResource("3_he43n")
+offset = Vector2(37.6711, 60.2475)
+region_enabled = true
+region_rect = Rect2(126.5, 29.1999, 151.774, 166.313)
+
+[node name="ForeArmR10" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(18.7388, 14.7835)
+texture = ExtResource("3_he43n")
+offset = Vector2(37.6711, 60.2475)
+region_enabled = true
+region_rect = Rect2(126.5, 29.1999, 151.774, 166.313)
+
+[node name="ForeArmR11" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(19.7121, 19.1376)
+texture = ExtResource("3_he43n")
+offset = Vector2(37.6711, 60.2475)
+region_enabled = true
+region_rect = Rect2(126.5, 29.1999, 151.774, 166.313)
+
+[node name="ForeArmR13" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(17.403, 18.2471)
+texture = ExtResource("3_he43n")
+offset = Vector2(37.6711, 60.2475)
+region_enabled = true
+region_rect = Rect2(126.5, 29.1999, 151.774, 166.313)
 
 [node name="HandR" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR"]
 z_index = 1
@@ -775,24 +1070,208 @@ offset = Vector2(7.76695, -25.1275)
 region_enabled = true
 region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
 
+[node name="Node2D" type="Node2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR"]
+
+[node name="HandR2" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(3.05176e-05, 3.8147e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR3" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(2.43523, -0.439907)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR4" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-4.87023, 0.879665)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR5" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-3.31466, -4.43052)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR6" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(1.55564, -5.31015)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR7" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-5.74982, -3.99057)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR8" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(0.219872, 1.21756)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR9" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(2.65508, 0.777657)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
+[node name="HandR10" type="Sprite2D" parent="BodyPuppet/Body/ArmR/ForeArmR/HandR/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(-4.6504, 2.09723)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(7.76695, -25.1275)
+region_enabled = true
+region_rect = Rect2(169.465, 41.02, 86.515, 113.135)
+
 [node name="ArmL" type="Sprite2D" parent="BodyPuppet/Body"]
 z_index = 3
 use_parent_material = true
-position = Vector2(86.6336, -102.988)
-rotation = 0.515318
-scale = Vector2(0.935063, 0.86826)
-skew = 0.218454
+position = Vector2(86.6339, -102.988)
+rotation = 0.515322
+scale = Vector2(0.935062, 0.86826)
+skew = 0.218451
 texture = ExtResource("3_he43n")
 offset = Vector2(67.0828, 17.4047)
 region_enabled = true
 region_rect = Rect2(362.127, 140.942, 215.622, 131.769)
 
+[node name="Outline" type="Node2D" parent="BodyPuppet/Body/ArmL"]
+
+[node name="ArmL2" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(16.8306, 0.140667)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL3" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(19.9186, -1.91724)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL4" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(16.1951, -0.849689)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL5" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(16.1112, -0.866154)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL6" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(17.118, -1.58559)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL7" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(15.1044, -0.146717)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL8" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(17.5501, 1.1475)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL9" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(18.5569, 0.428066)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
+[node name="ArmL10" type="Sprite2D" parent="BodyPuppet/Body/ArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(16.5432, 1.86694)
+texture = ExtResource("3_he43n")
+offset = Vector2(67.0828, 17.4047)
+region_enabled = true
+region_rect = Rect2(399.5, 140.942, 178.249, 131.769)
+
 [node name="ForeArmL" type="Sprite2D" parent="BodyPuppet/Body/ArmL"]
 z_index = 4
 use_parent_material = true
-position = Vector2(129.538, 31.1069)
-rotation = -0.294205
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(129.538, 31.1071)
+rotation = -0.294206
+scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("3_he43n")
 offset = Vector2(-52.4207, 42.0722)
 region_enabled = true
@@ -804,22 +1283,165 @@ z_as_relative = false
 material = ExtResource("4_u22hc")
 position = Vector2(-111.176, 75.1042)
 rotation = -0.311061
-scale = Vector2(1, 1)
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="Outline" type="Node2D" parent="BodyPuppet/Body/ArmL/ForeArmL"]
+
+[node name="ForeArmL2" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(2.34462, -0.79332)
+texture = ExtResource("3_he43n")
+offset = Vector2(-52.4207, 42.0722)
+region_enabled = true
+region_rect = Rect2(437.994, 322.552, 219.615, 210.298)
+
+[node name="ForeArmL3" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(-2.34465, 0.793327)
+texture = ExtResource("3_he43n")
+offset = Vector2(-52.4207, 42.0722)
+region_enabled = true
+region_rect = Rect2(437.994, 322.552, 219.615, 210.298)
+
+[node name="ForeArmL4" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(-0.79332, -2.34463)
+texture = ExtResource("3_he43n")
+offset = Vector2(-52.4207, 42.0722)
+region_enabled = true
+region_rect = Rect2(437.994, 322.552, 219.615, 210.298)
+
+[node name="ForeArmL5" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(0.793289, 2.34462)
+texture = ExtResource("3_he43n")
+offset = Vector2(-52.4207, 42.0722)
+region_enabled = true
+region_rect = Rect2(437.994, 322.552, 219.615, 210.298)
+
+[node name="Outline2" type="Node2D" parent="BodyPuppet/Body/ArmL/ForeArmL"]
+
+[node name="HandL2" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-111.176, 75.1042)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL3" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-113.494, 75.97)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL4" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-108.858, 74.2384)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL5" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-110.31, 77.4223)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL6" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-112.628, 78.2881)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL7" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-107.992, 76.5565)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL8" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-112.042, 72.7861)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL9" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-114.36, 73.6519)
+rotation = -0.311061
+texture = ExtResource("5_ky64x")
+offset = Vector2(-1.8402, -26.7352)
+region_enabled = true
+region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
+
+[node name="HandL10" type="Sprite2D" parent="BodyPuppet/Body/ArmL/ForeArmL/Outline2"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(-109.724, 71.9202)
+rotation = -0.311061
 texture = ExtResource("5_ky64x")
 offset = Vector2(-1.8402, -26.7352)
 region_enabled = true
 region_rect = Rect2(45.6819, 78.288, 66.55, 107.811)
 
 [node name="Skeleton2D" type="Skeleton2D" parent="BodyPuppet"]
+visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_k2v3j")
 
 [node name="Waist" type="Bone2D" parent="BodyPuppet/Skeleton2D"]
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="ArmR" type="Bone2D" parent="BodyPuppet/Skeleton2D/Waist"]
-position = Vector2(-65.5941, -102.723)
-rotation = -0.482099
-scale = Vector2(1.00003, 1.00003)
+position = Vector2(-59.4176, -107.673)
+rotation = -0.288581
+scale = Vector2(1.00013, 1.00013)
 rest = Transform2D(0.975518, -0.220216, 0.220216, 0.975518, -45.7926, -102.725)
 metadata/_local_pose_override_enabled_ = true
 
@@ -827,9 +1449,9 @@ metadata/_local_pose_override_enabled_ = true
 remote_path = NodePath("../../../../Body/ArmR")
 
 [node name="ForeArmR" type="Bone2D" parent="BodyPuppet/Skeleton2D/Waist/ArmR"]
-position = Vector2(-129.95, 33.4158)
-rotation = -0.109655
-scale = Vector2(0.999996, 0.999996)
+position = Vector2(-129.948, 33.4161)
+rotation = -0.0156444
+scale = Vector2(0.999946, 0.999946)
 rest = Transform2D(0.999879, -0.014752, 0.014752, 0.999879, -129.95, 33.4154)
 metadata/_local_pose_override_enabled_ = true
 
@@ -848,8 +1470,8 @@ bone_angle = -70.878
 remote_path = NodePath("../../../../../../Body/ArmR/ForeArmR/HandR")
 
 [node name="ArmL" type="Bone2D" parent="BodyPuppet/Skeleton2D/Waist"]
-position = Vector2(82.9208, -108.911)
-rotation = 0.620493
+position = Vector2(82.921, -108.911)
+rotation = 0.620485
 scale = Vector2(1.00004, 1.00004)
 rest = Transform2D(0.860264, 0.510138, -0.510138, 0.860264, 68.0708, -105.2)
 metadata/_local_pose_override_enabled_ = true
@@ -858,9 +1480,9 @@ metadata/_local_pose_override_enabled_ = true
 remote_path = NodePath("../../../../Body/ArmL")
 
 [node name="ForeArmR" type="Bone2D" parent="BodyPuppet/Skeleton2D/Waist/ArmL"]
-position = Vector2(128.713, 28.4653)
-rotation = 0.224891
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(128.713, 28.4655)
+rotation = 0.161033
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.965, 0.262203, -0.262203, 0.965, 128.712, 28.4648)
 metadata/_local_pose_override_enabled_ = true
 
@@ -993,3 +1615,5 @@ offset_left = 97.0
 offset_top = -354.0
 offset_right = 137.0
 offset_bottom = -331.0
+
+[node name="Node2D" type="Node2D" parent="."]

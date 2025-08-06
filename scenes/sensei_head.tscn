@@ -113,6 +113,13 @@ texture = ExtResource("14_kkfqh")
 region_enabled = true
 region_rect = Rect2(140.5, 104.5, 60, 25)
 
+[node name="Frame46" type="Sprite2D" parent="Upper"]
+material = ExtResource("4_olxu3")
+position = Vector2(-6.51629, 48.7425)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
 [node name="Frame4(2)18" type="Sprite2D" parent="Upper"]
 material = ExtResource("17_0os5g")
 position = Vector2(-9.72358, 12.3399)
@@ -121,7 +128,142 @@ scale = Vector2(0.139855, 0.235012)
 skew = -0.0185573
 texture = ExtResource("12_w6tw8")
 
-[node name="Frame46" type="Sprite2D" parent="Upper"]
-material = ExtResource("4_olxu3")
-position = Vector2(-9.72358, 55.5294)
+[node name="Node2D" type="Node2D" parent="Upper"]
+visible = false
+
+[node name="Frame52" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-6.51629, 48.7425)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
 texture = ExtResource("18_800kf")
+
+[node name="Frame53" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-4.0854, 48.7425)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Frame54" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-12.5935, 48.7425)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Frame55" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-7.72454, 52.4445)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Frame56" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-4.08061, 51.2105)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Frame57" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-10.1578, 51.2105)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Frame58" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-6.52345, 45.0405)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Frame59" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-4.09259, 45.0405)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Frame60" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-12.6007, 45.0405)
+scale = Vector2(0.862271, 0.790105)
+skew = 0.141372
+texture = ExtResource("18_800kf")
+
+[node name="Upper2" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper3" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2.43089, 0)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper4" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-2.43089, 0)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper5" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-4.86179, 0)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper6" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(0, -4.93596)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper7" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2.43089, -4.93596)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper8" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-2.43089, -4.93596)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper9" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-7.29268, -3.70196)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper10" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(0, 8.63785)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper12" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-2.43089, 8.63785)
+texture = ExtResource("7_o7ivw")
+
+[node name="Upper13" type="Sprite2D" parent="Upper/Node2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-4.86179, 8.63785)
+texture = ExtResource("7_o7ivw")
