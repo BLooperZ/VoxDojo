@@ -249,10 +249,10 @@ func play_short(clip, duration=null):
 	player.volume_db = 0
 	player.stop()
 
-func perform_clip(indicator, clip, duration=null):
+func perform_clip(indicator, clip: FightMove, duration=null):
 	print("HERE")
 	sensei_player.stream = clip.sound
-	sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE
+	sensei_player.volume_db = 0 + SENSEI_VOLUME_SCALE + clip.volume_fix
 	sensei_player.play()
 	var finish = sensei_player.finished
 	if duration != null:

@@ -8,3 +8,4 @@ script = ExtResource("1_k7ahw")
 chore = "kukukuku"
 sound = ExtResource("2_jcenr")
 label = "kukukuku"
+volume_fix = 4
